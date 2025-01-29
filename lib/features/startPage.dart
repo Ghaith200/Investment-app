@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:investement_app/features/login/login.dart';
-import 'package:investement_app/features/login/signUp.dart';
+import 'package:investement_app/features/login/screens/login_screen.dart';
+import 'package:investement_app/features/sign_up/signUp.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -74,7 +74,7 @@ class _LandingPageState extends State<LandingPage> {
               ),
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => LoginPage()));
+                    context, MaterialPageRoute(builder: (_) => LoginScreen()));
               },
               child: Text(
                 'Log In',
