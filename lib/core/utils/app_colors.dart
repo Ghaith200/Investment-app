@@ -10,7 +10,7 @@ class AppColors {
   static bool isDarkMode = false;
 
   // // Static color definitions
-  static const Color blue = Color(0xFF0096FF);
+  static const Color blue = Color(0xFF304FFE);
   static const Color brown = Color(0xFF964B00);
   static const Color lightBrown = Color(0xFFFF8C01);
 
