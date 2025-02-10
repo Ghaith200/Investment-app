@@ -41,6 +41,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/Shapes.png
   AssetGenImage get shapes => const AssetGenImage('assets/images/Shapes.png');
 
+  /// File path: assets/images/arrow_right.png
+  AssetGenImage get arrowRight =>
+      const AssetGenImage('assets/images/arrow_right.png');
+
   /// Directory path: assets/images/icons
   $AssetsImagesIconsGen get icons => const $AssetsImagesIconsGen();
 
@@ -70,6 +74,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         shapes,
+        arrowRight,
         logo,
         onboarding1,
         onboarding2,
