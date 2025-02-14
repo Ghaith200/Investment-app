@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:investement_app/core/utils/app_colors.dart';
-import 'package:investement_app/features/home/screens/home_screen.dart';
+import 'package:investement_app/features/home/screens/homepage.dart';
 import 'package:investement_app/features/onboarding_screen/widgets/onboarding_subtitle.dart';
 import 'package:investement_app/features/onboarding_screen/widgets/onboarding_title.dart';
 import 'package:investement_app/gen/assets.gen.dart';
@@ -53,7 +53,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               curve: Curves.easeInOut,
             );
           } else {
-            context.pushReplacementNamed(HomeScreen.id);
+            context.pushReplacementNamed(Homepage.id);
           }
         },
         child: Padding(

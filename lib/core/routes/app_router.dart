@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:investement_app/features/home/screens/home_screen.dart';
+import 'package:investement_app/features/home/screens/homepage.dart';
 import 'package:investement_app/features/login/screens/login_screen.dart';
 import 'package:investement_app/features/onboarding_screen/screens/onboarding_screen.dart';
 import 'package:investement_app/features/sign_up/screens/signUp.dart';
@@ -7,7 +7,7 @@ import 'package:investement_app/features/startPage.dart';
 
 abstract class AppRouter {
   static final GoRouter goRouter = GoRouter(
-    initialLocation: LandingPage.id,
+    initialLocation: OnboardingScreen.id,
     routes: [
       GoRoute(
         path: LoginScreen.id,
@@ -25,9 +25,9 @@ abstract class AppRouter {
         builder: (context, state) => const SignUpPage(),
       ),
       GoRoute(
-        path: HomeScreen.id,
-        name: HomeScreen.id,
-        builder: (context, state) => const HomeScreen(),
+        path: Homepage.id,
+        name: Homepage.id,
+        builder: (context, state) => const Homepage(),
       ),
       GoRoute(
         path: LandingPage.id,
