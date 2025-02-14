@@ -18,20 +18,24 @@ class MenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: menuItems.length,
-      separatorBuilder: (context, index) => Divider(
-        color: Colors.black,
-        thickness: 1,
+      separatorBuilder: (context, index) => const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        child: Divider(
+          color: Color.fromARGB(134, 75, 75, 75),
+          thickness: 0.3,
+        ),
       ),
       itemBuilder: (context, index) {
         return ListTile(
           leading: Icon(menuItems[index].icon, color: Colors.blue),
           title: Text(
             menuItems[index].title,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          trailing: Icon(Icons.arrow_forward_ios, color: Colors.black),
+          trailing: const Icon(Icons.arrow_forward_ios,
+              color: Color.fromARGB(255, 61, 61, 61)),
           onTap: () {
             // Handle menu item click
           },

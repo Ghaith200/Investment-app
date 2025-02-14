@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:investement_app/core/widgets/custom_textfield.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 import 'package:investement_app/widgets/CardsListview.dart';
 import 'package:investement_app/widgets/DrawerListTile.dart';
@@ -8,6 +9,8 @@ import 'package:investement_app/widgets/profileWidget.dart';
 import 'package:investement_app/widgets/textfield.dart';
 
 class Homepage extends StatefulWidget {
+  static const String id = "/home";
+
   const Homepage({super.key});
 
   @override
@@ -17,7 +20,8 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final width = MediaQuery.sizeOf(context).width;
+    final height = MediaQuery.sizeOf(context).height;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -53,7 +57,7 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.05,
+              height: 20,
             ),
             ProfileWidget(),
             MenuList(),
@@ -63,26 +67,13 @@ class _HomepageState extends State<Homepage> {
       body: ListView(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+            margin: EdgeInsets.symmetric(horizontal: width * 0.03),
             child: TextFieldWidget(
                 label: 'Search Any project', icon: Icons.search),
           ),
-          SizedBox(height: size.height * 0.02),
+          SizedBox(height: 20),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                TopNavigator(onTap: () {}, title: 'Home'),
-                TopNavigator(onTap: () {}, title: 'Chat'),
-                TopNavigator(onTap: () {}, title: 'Saved'),
-                TopNavigator(onTap: () {}, title: 'Card'),
-              ],
-            ),
-          ),
-          SizedBox(height: size.height * 0.02),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+            margin: EdgeInsets.symmetric(horizontal: width * 0.03),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -96,7 +87,7 @@ class _HomepageState extends State<Homepage> {
               ],
             ),
           ),
-          SizedBox(height: size.height * 0.02),
+          SizedBox(height: 20),
           CardListView(
             cards: [
               {
@@ -146,6 +137,10 @@ class _HomepageState extends State<Homepage> {
               },
             ],
           ),
+          CustomTextFormField(
+              hintText: 'hintText',
+              prefixIcon: Icon(Icons.search),
+              label: 'label')
         ],
       ),
     );
