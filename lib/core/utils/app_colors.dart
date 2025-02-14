@@ -67,5 +67,5 @@ class AppColors {
   //   scaffoldBackgroundColor: Colors.white12,
   // );
 
-  // static ThemeData get theme => isDarkMode ? dartTheme : lightTheme;
+  // static ThemeData get theme => isDarkMode ? dartTheme : lightTheme;ٍ
 }

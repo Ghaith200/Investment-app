@@ -11,7 +11,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
-
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
@@ -37,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(height: size.height * 0.04),
           Container(
               margin: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-              child: Text(
+              child: const Text(
                 'Log In To Fundx',
                 style: TextStyle(
                     color: Colors.black,
@@ -87,9 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   shadowColor: Colors.blueAccent,
                   elevation: 10,
                 ),
-                onPressed: () {
-                  
-                },
+                onPressed: () {},
                 child: Text(
                   'Continue',
                   style: TextStyle(fontSize: 29, color: Colors.white),
