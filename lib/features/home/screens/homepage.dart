@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:investement_app/gen/assets.gen.dart';
+import 'package:investement_app/widgets/CardsListview.dart';
 import 'package:investement_app/widgets/DrawerListTile.dart';
+import 'package:investement_app/widgets/TopNavigator.dart';
 import 'package:investement_app/widgets/menuList.dart';
 import 'package:investement_app/widgets/profileWidget.dart';
+import 'package:investement_app/widgets/textfield.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -57,7 +60,94 @@ class _HomepageState extends State<Homepage> {
           ],
         ),
       ),
-      body: ListView(),
+      body: ListView(
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+            child: TextFieldWidget(
+                label: 'Search Any project', icon: Icons.search),
+          ),
+          SizedBox(height: size.height * 0.02),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TopNavigator(onTap: () {}, title: 'Home'),
+                TopNavigator(onTap: () {}, title: 'Chat'),
+                TopNavigator(onTap: () {}, title: 'Saved'),
+                TopNavigator(onTap: () {}, title: 'Card'),
+              ],
+            ),
+          ),
+          SizedBox(height: size.height * 0.02),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  'All Projects',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: size.height * 0.02),
+          CardListView(
+            cards: [
+              {
+                'image': Assets.images.logo.path,
+                'title': 'Crypto',
+                'subtitle': 'Bitcoin',
+              },
+              {
+                'image': Assets.images.onboarding1.path,
+                'title': 'onboarding1',
+                'subtitle': 'shawn',
+              },
+              {
+                'image': Assets.images.onboarding2.path,
+                'title': 'onboarding2',
+                'subtitle': 'cena',
+              },
+              {
+                'image': Assets.images.logo.path,
+                'title': 'Crypto',
+                'subtitle': 'Bitcoin',
+              },
+              {
+                'image': Assets.images.onboarding1.path,
+                'title': 'onboarding1',
+                'subtitle': 'shawn',
+              },
+              {
+                'image': Assets.images.onboarding2.path,
+                'title': 'onboarding2',
+                'subtitle': 'cena',
+              },
+              {
+                'image': Assets.images.logo.path,
+                'title': 'Crypto',
+                'subtitle': 'Bitcoin',
+              },
+              {
+                'image': Assets.images.onboarding1.path,
+                'title': 'onboarding1',
+                'subtitle': 'shawn',
+              },
+              {
+                'image': Assets.images.onboarding2.path,
+                'title': 'onboarding2',
+                'subtitle': 'cena',
+              },
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
