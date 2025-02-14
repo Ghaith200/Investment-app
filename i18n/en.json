@@ -1,0 +1,19 @@
+{
+    "valitators" : {
+        "Enter_password": "Please enter a password",
+        "Password_must_be_8_chars": "Password must be at least 8 characters long",
+        "Uppercase_required": "Password must contain at least one uppercase letter",
+        "Lowercase_required": "Password must contain at least one lowercase letter",
+        "Number_required": "Password must contain at least one number",
+        "Special_char_required":
+            "Password must contain at least one special character (!@#\\$&*~)",
+        "Enter_email": "Please enter an email",
+        "Valid_email_required": "Please enter a valid email address",
+        "Enter_name": "Please enter a name",
+        "Valid_name_required": "Please enter a valid name",
+        "Name_must_be_2_chars": "Name must be at least 2 characters long",
+        "Field_required": "This field can\"t be empty",
+        "Valid_phone_required": "Please enter a valid phone number",
+        "field_can't_be_empty": "This field can't be empty"
+    }
+}
