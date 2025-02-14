@@ -32,7 +32,7 @@ class ProfileWidget extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Text(
-            "Fuck you Ghaith",
+            "User Name",
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
