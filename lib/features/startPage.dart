@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:investement_app/features/login/screens/login_screen.dart';
 import 'package:investement_app/features/sign_up/screens/signUp.dart';
+import 'package:investement_app/gen/assets.gen.dart';
 
 class LandingPage extends StatefulWidget {
+  static const String id = "/startup";
   const LandingPage({super.key});
 
   @override
@@ -31,10 +33,10 @@ class _LandingPageState extends State<LandingPage> {
       ),
       body: ListView(
         children: [
-          SizedBox(height: 10),
-          Container(
+          const SizedBox(height: 10),
+          SizedBox(
             height: size.height * 0.4,
-            // child: Image.asset('assets/images/startpage.png'),
+            child: Assets.images.startpage.image(),
           ),
           SizedBox(height: size.height * 0.03),
           Container(

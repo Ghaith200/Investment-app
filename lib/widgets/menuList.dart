@@ -18,22 +18,26 @@ class MenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: menuItems.length,
+
       separatorBuilder: (context, index) => Divider(
         color: Colors.black,
         thickness: 0.5,
+
       ),
       itemBuilder: (context, index) {
         return ListTile(
           leading: Icon(menuItems[index].icon, color: Colors.blue),
           title: Text(
             menuItems[index].title,
+
             style: TextStyle(fontSize: 18),
           ),
           trailing: Icon(
             Icons.arrow_forward_ios,
           ),
+
           onTap: () {
             // Handle menu item click
           },

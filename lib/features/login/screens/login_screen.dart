@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(height: size.height * 0.04),
           Container(
               margin: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-              child: Text(
+              child: const Text(
                 'Log In To Fundx',
                 style: TextStyle(
                     color: Colors.black,

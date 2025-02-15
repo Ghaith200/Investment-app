@@ -11,7 +11,8 @@ class CardListView extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.height,
-      child: ListView.builder(
+      child: ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(height: 20),
           itemCount: cards.length,
           itemBuilder: (context, index) {
             return Column(children: [
@@ -19,7 +20,6 @@ class CardListView extends StatelessWidget {
                 margin: EdgeInsets.symmetric(
                     horizontal: size.width * 0.05,
                     vertical: size.height * 0.02),
-                height: size.height * 0.35,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -84,54 +84,100 @@ class CardListView extends StatelessWidget {
                             Text('A small description about the project'),
                           ]),
                         ),
+
                       ),
-                      SizedBox(height: size.height * 0.01),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    ),
+                    Container(
+                      height: size.height * 0.03,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Squaredbutton(
-                            text: 'Required Money:',
-                            icon: Icons.attach_money,
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.share_outlined,
+                              color: const Color.fromARGB(255, 2, 0, 109),
+                              size: size.height * 0.03,
+                            ),
                           ),
-                          Squaredbutton(
-                            text: 'Required Ratio:',
-                            icon: Icons.percent,
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.bookmark_border_outlined,
+                              color: const Color.fromARGB(255, 2, 0, 109),
+                              size: size.height * 0.03,
+                            ),
                           ),
                         ],
                       ),
-                      SizedBox(height: size.height * 0.02),
+                    )
+                  ]),
+                  // SizedBox(height: size.height * 0.01),
+                  Container(
+                    // color: Colors.black12,
+                    child: Center(
+                      child: Column(children: [
+                        Text(
+                          'Project name',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: size.height * 0.03),
+                        ),
+                        Text('A small description about the project'),
+                      ]),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Squaredbutton(
+                        text: 'Required Money:',
+                        icon: Icons.attach_money,
+                      ),
+                      Squaredbutton(
+                        text: 'Required Ratio:',
+                        icon: Icons.percent,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: size.height * 0.02),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                height: size.height * 0.04,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.asset(
-                                      Assets
-                                          .images
-                                          .a00756f144a0fb5daaf68dbfc01103a46
-                                          .path,
-                                      fit: BoxFit.cover,
-                                    )),
-                              ),
-                              SizedBox(width: size.width * 0.01),
-                              Text(
-                                'Project Owner Name',
-                                style: TextStyle(color: Colors.blue.shade900),
-                              )
-                            ],
+                          Container(
+                            height: size.height * 0.04,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Image.asset(
+                                  Assets.images
+                                      .a00756f144a0fb5daaf68dbfc01103a46.path,
+                                  fit: BoxFit.cover,
+                                )),
                           ),
-                          Squaredbutton(
-                            text: 'View',
-                            icon: Icons.visibility,
-                          ),
+                          SizedBox(width: size.width * 0.01),
+                          Text(
+                            'Project Owner Name',
+                            style: TextStyle(color: Colors.blue.shade900),
+                          )
                         ],
                       ),
-                    ]),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 15),
+                        child: Squaredbutton(
+                          text: 'View',
+                          icon: Icons.visibility,
+                        ),
+                      ),
+                    ],
+                  ),
+                ]),
               ),
             ]);
           }),
