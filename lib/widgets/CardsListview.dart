@@ -45,7 +45,7 @@ class CardListView extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: size.height * 0.02),
+                          // margin: EdgeInsets.only(top: size.height * 0.02),
                           height: size.height * 0.03,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

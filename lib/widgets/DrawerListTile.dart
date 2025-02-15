@@ -22,19 +22,15 @@ class _DrawerListtileState extends State<DrawerListtile> {
   Widget build(BuildContext context) {
     return ListTile(
       leading: IconButton(
-          onPressed: widget.onTap,
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: Icon(
             widget.icon.icon,
             size: 30,
             color: Colors.black,
           )),
       title: widget.title,
-      onTap: () {
-        // Update the state of the app
-        // ...
-        // Then close the drawer
-        Navigator.pop(context);
-      },
     );
   }
 }

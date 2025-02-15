@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 import 'package:investement_app/widgets/CardsListview.dart';
 import 'package:investement_app/widgets/DrawerListTile.dart';
-import 'package:investement_app/widgets/TopNavigator.dart';
 import 'package:investement_app/widgets/menuList.dart';
 import 'package:investement_app/widgets/profileWidget.dart';
 import 'package:investement_app/widgets/textfield.dart';
@@ -71,20 +70,7 @@ class _HomepageState extends State<Homepage> {
           Container(
             margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                TopNavigator(onTap: () {}, title: 'Home'),
-                TopNavigator(onTap: () {}, title: 'Chat'),
-                TopNavigator(onTap: () {}, title: 'Saved'),
-                TopNavigator(onTap: () {}, title: 'Card'),
-              ],
-            ),
-          ),
-          SizedBox(height: size.height * 0.02),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'All Projects',
@@ -93,10 +79,35 @@ class _HomepageState extends State<Homepage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                TextButton(
+                  onPressed: () {
+                    _showSortOptions(context);
+                  },
+                  child: Container(
+                    height: size.height * 0.03,
+                    width: size.width * 0.14,
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: Colors.grey),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          'Sort',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Icon(Icons.sort),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
-          SizedBox(height: size.height * 0.02),
+          // SizedBox(height: size.height * 0.02),
           CardListView(
             cards: [
               {
@@ -150,4 +161,66 @@ class _HomepageState extends State<Homepage> {
       ),
     );
   }
+}
+
+void _showSortOptions(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    ),
+    builder: (context) {
+      return Container(
+        color: Colors.white,
+        child: Wrap(
+          children: [
+            ListTile(
+              leading: Icon(Icons.sort_by_alpha),
+              title: Text(
+                'A-Z',
+                style: TextStyle(fontSize: 20),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                print('A-Z selected');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.swap_vert),
+              title: Text(
+                'Z-A',
+                style: TextStyle(fontSize: 20),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                print('Z-A selected');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.calendar_today_outlined),
+              title: Text(
+                'Newest First',
+                style: TextStyle(fontSize: 20),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                print('Newest First selected');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.history_outlined),
+              title: Text(
+                'Oldest First',
+                style: TextStyle(fontSize: 20),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                print('Oldest First selected');
+              },
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }

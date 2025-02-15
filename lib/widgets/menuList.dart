@@ -22,16 +22,18 @@ class MenuList extends StatelessWidget {
       itemCount: menuItems.length,
       separatorBuilder: (context, index) => Divider(
         color: Colors.black,
-        thickness: 1,
+        thickness: 0.5,
       ),
       itemBuilder: (context, index) {
         return ListTile(
           leading: Icon(menuItems[index].icon, color: Colors.blue),
           title: Text(
             menuItems[index].title,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 18),
           ),
-          trailing: Icon(Icons.arrow_forward_ios, color: Colors.black),
+          trailing: Icon(
+            Icons.arrow_forward_ios,
+          ),
           onTap: () {
             // Handle menu item click
           },
