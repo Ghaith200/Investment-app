@@ -38,8 +38,16 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/00756f144a0fb5daaf68dbfc01103a46.png
+  AssetGenImage get a00756f144a0fb5daaf68dbfc01103a46 =>
+      const AssetGenImage('assets/images/00756f144a0fb5daaf68dbfc01103a46.png');
+
   /// File path: assets/images/Shapes.png
   AssetGenImage get shapes => const AssetGenImage('assets/images/Shapes.png');
+
+  /// File path: assets/images/arrow_right.png
+  AssetGenImage get arrowRight =>
+      const AssetGenImage('assets/images/arrow_right.png');
 
   /// Directory path: assets/images/icons
   $AssetsImagesIconsGen get icons => const $AssetsImagesIconsGen();
@@ -69,7 +77,9 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        a00756f144a0fb5daaf68dbfc01103a46,
         shapes,
+        arrowRight,
         logo,
         onboarding1,
         onboarding2,

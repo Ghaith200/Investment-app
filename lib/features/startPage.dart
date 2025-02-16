@@ -3,6 +3,7 @@ import 'package:investement_app/features/login/screens/login_screen.dart';
 import 'package:investement_app/features/sign_up/signUp.dart';
 
 class LandingPage extends StatefulWidget {
+  static const id = '/LandingPage';
   const LandingPage({super.key});
 
   @override

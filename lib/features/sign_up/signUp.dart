@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:investement_app/widgets/textfield.dart';
+import 'package:investement_app/features/home/widgets/textfield.dart';
 
 class SignUpPage extends StatefulWidget {
+  static const id = 'SignUpPage';
   const SignUpPage({super.key});
 
   @override
