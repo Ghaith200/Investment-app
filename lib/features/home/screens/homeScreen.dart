@@ -5,6 +5,7 @@ import 'package:investement_app/features/home/widgets/darwerListTile.dart';
 import 'package:investement_app/features/home/widgets/menuList.dart';
 import 'package:investement_app/features/home/widgets/profileWidget.dart';
 import 'package:investement_app/features/home/widgets/textfield.dart';
+import 'package:investement_app/features/profile/Screens/profileScreen.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
 class Homepage extends StatefulWidget {
@@ -31,19 +32,25 @@ class _HomepageState extends State<Homepage> {
               fontWeight: FontWeight.bold),
         ),
         actions: [
-          Container(
-              margin: EdgeInsets.only(right: size.width * 0.02),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(150)),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(150),
-                child: Image.asset(
-                  Assets.images.profilePhoto.path,
-                  height: size.height * 0.05,
-                  width: size.width * 0.1,
-                ),
-              ))
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Profilescreen()));
+            },
+            child: Container(
+                margin: EdgeInsets.only(right: size.width * 0.02),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(150)),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(150),
+                  child: Image.asset(
+                    Assets.images.profilePhoto.path,
+                    height: size.height * 0.05,
+                    width: size.width * 0.1,
+                  ),
+                )),
+          )
         ],
       ),
       drawer: Drawer(
