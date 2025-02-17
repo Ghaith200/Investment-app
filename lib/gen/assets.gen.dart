@@ -55,6 +55,17 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/newlogo.jpg
+  AssetGenImage get newlogo => const AssetGenImage('assets/images/newlogo.jpg');
+
+  /// File path: assets/images/newlogo2.jpg
+  AssetGenImage get newlogo2 =>
+      const AssetGenImage('assets/images/newlogo2.jpg');
+
+  /// File path: assets/images/newlogo3.jpg
+  AssetGenImage get newlogo3 =>
+      const AssetGenImage('assets/images/newlogo3.jpg');
+
   /// File path: assets/images/onboarding_1.png
   AssetGenImage get onboarding1 =>
       const AssetGenImage('assets/images/onboarding_1.png');
@@ -81,6 +92,9 @@ class $AssetsImagesGen {
         shapes,
         arrowRight,
         logo,
+        newlogo,
+        newlogo2,
+        newlogo3,
         onboarding1,
         onboarding2,
         onboarding3,

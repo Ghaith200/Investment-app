@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:investement_app/features/settings/screen/settingScreen.dart';
 
 class MenuList extends StatelessWidget {
-  final List<MenuItem> menuItems = [
-    MenuItem(Icons.person, "Edit Profile"),
-    MenuItem(Icons.account_balance, "Bank & Card"),
-    MenuItem(Icons.notifications, "Notification"),
-    MenuItem(Icons.settings, "Setting"),
-    MenuItem(Icons.security, "Security"),
-    MenuItem(Icons.assignment, "My Project"),
-    MenuItem(Icons.edit, "Add New Project"),
-    MenuItem(Icons.account_balance_wallet, "My Investment"),
-    MenuItem(Icons.bookmark, "Save For Later"),
-    MenuItem(Icons.power_settings_new, "Log Out"),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final List<MenuItem> menuItems = [
+      MenuItem(Icons.person, "Edit Profile", () {}),
+      MenuItem(Icons.account_balance, "Bank & Card", () {}),
+      MenuItem(Icons.notifications, "Notification", () {}),
+      MenuItem(Icons.settings, "Setting", () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Settingscreen()));
+      }),
+      MenuItem(Icons.security, "Security", () {}),
+      MenuItem(Icons.assignment, "My Project", () {}),
+      MenuItem(Icons.edit, "Add New Project", () {}),
+      MenuItem(Icons.account_balance_wallet, "My Investment", () {}),
+      MenuItem(Icons.bookmark, "Save For Later", () {}),
+      MenuItem(Icons.power_settings_new, "Log Out", () {}),
+    ];
     return ListView.separated(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -34,9 +37,7 @@ class MenuList extends StatelessWidget {
           trailing: Icon(
             Icons.arrow_forward_ios,
           ),
-          onTap: () {
-            // Handle menu item click
-          },
+          onTap: menuItems[index].onTap,
         );
       },
     );
@@ -46,6 +47,11 @@ class MenuList extends StatelessWidget {
 class MenuItem {
   final IconData icon;
   final String title;
+  final VoidCallback onTap;
 
-  MenuItem(this.icon, this.title);
+  MenuItem(
+    this.icon,
+    this.title,
+    this.onTap,
+  );
 }

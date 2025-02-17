@@ -135,31 +135,6 @@ class _HomepageState extends State<Homepage> {
                 'title': 'Crypto',
                 'subtitle': 'Bitcoin',
               },
-              {
-                'image': Assets.images.onboarding1.path,
-                'title': 'onboarding1',
-                'subtitle': 'shawn',
-              },
-              {
-                'image': Assets.images.onboarding2.path,
-                'title': 'onboarding2',
-                'subtitle': 'cena',
-              },
-              {
-                'image': Assets.images.logo.path,
-                'title': 'Crypto',
-                'subtitle': 'Bitcoin',
-              },
-              {
-                'image': Assets.images.onboarding1.path,
-                'title': 'onboarding1',
-                'subtitle': 'shawn',
-              },
-              {
-                'image': Assets.images.onboarding2.path,
-                'title': 'onboarding2',
-                'subtitle': 'cena',
-              },
             ],
           ),
           CustomTextFormField(
