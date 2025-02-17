@@ -78,6 +78,10 @@ class $AssetsImagesGen {
   AssetGenImage get onboarding3 =>
       const AssetGenImage('assets/images/onboarding_3.png');
 
+  /// File path: assets/images/profilePhoto.jpeg
+  AssetGenImage get profilePhoto =>
+      const AssetGenImage('assets/images/profilePhoto.jpeg');
+
   /// File path: assets/images/splash_screen.png
   AssetGenImage get splashScreen =>
       const AssetGenImage('assets/images/splash_screen.png');
@@ -98,6 +102,7 @@ class $AssetsImagesGen {
         onboarding1,
         onboarding2,
         onboarding3,
+        profilePhoto,
         splashScreen,
         startpage
       ];

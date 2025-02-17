@@ -14,12 +14,11 @@ class _SettingscreenState extends State<Settingscreen> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: const Text(
           "Settings",
           style: TextStyle(
-            color: Colors.blueAccent,
-            fontSize: 30,
+            color: Colors.grey,
+            fontSize: 27,
             fontWeight: FontWeight.w400,
           ),
         ),

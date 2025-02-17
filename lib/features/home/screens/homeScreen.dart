@@ -31,10 +31,19 @@ class _HomepageState extends State<Homepage> {
               fontWeight: FontWeight.bold),
         ),
         actions: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: Image.asset(Assets.images.logo.path, height: 50, width: 50),
-          )
+          Container(
+              margin: EdgeInsets.only(right: size.width * 0.02),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(150)),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(150),
+                child: Image.asset(
+                  Assets.images.profilePhoto.path,
+                  height: size.height * 0.05,
+                  width: size.width * 0.1,
+                ),
+              ))
         ],
       ),
       drawer: Drawer(
@@ -65,7 +74,8 @@ class _HomepageState extends State<Homepage> {
       body: ListView(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+            margin: EdgeInsets.symmetric(
+                horizontal: size.width * 0.03, vertical: size.height * 0.01),
             child: TextFieldWidget(
                 label: 'Search Any project', icon: Icons.search),
           ),

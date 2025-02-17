@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:investement_app/features/Notifications/screens/NotificationsScreen.dart';
+import 'package:investement_app/features/profile/Screens/profileScreen.dart';
 import 'package:investement_app/features/settings/screen/settingScreen.dart';
 
 class MenuList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<MenuItem> menuItems = [
-      MenuItem(Icons.person, "Edit Profile", () {}),
+      MenuItem(Icons.person, "Edit Profile", () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Profilescreen()));
+      }),
       MenuItem(Icons.account_balance, "Bank & Card", () {}),
-      MenuItem(Icons.notifications, "Notification", () {}),
-      MenuItem(Icons.settings, "Setting", () {
+      MenuItem(Icons.notifications, "Notification", () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => Notificationsscreen()));
+      }),
+      MenuItem(Icons.settings, "Settings", () {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => Settingscreen()));
       }),
@@ -25,7 +33,7 @@ class MenuList extends StatelessWidget {
       itemCount: menuItems.length,
       separatorBuilder: (context, index) => Divider(
         color: Colors.black,
-        thickness: 0.5,
+        thickness: 0.4,
       ),
       itemBuilder: (context, index) {
         return ListTile(

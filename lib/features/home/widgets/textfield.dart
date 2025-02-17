@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  final String label;
-  final IconData icon;
+  final String? label;
+  final IconData? icon;
   final bool isPassword;
   const TextFieldWidget({
-    required this.label,
-    required this.icon,
+    this.label,
+    this.icon,
     this.isPassword = false,
     super.key,
   });
