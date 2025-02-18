@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
 import 'package:investement_app/features/home/screens/homeScreen.dart';
 import 'package:investement_app/features/login/screens/login_screen.dart';
 import 'package:investement_app/features/onboarding_screen/screens/onboarding_screen.dart';
@@ -33,7 +34,14 @@ abstract class AppRouter {
         path: LandingPage.id,
         name: LandingPage.id,
         builder: (context, state) => const LandingPage(),
-      )
+      ),
+      GoRoute(
+          path: BottomNavBar.id,
+          name: BottomNavBar.id,
+          builder: (context, state) {
+            final int? index = state.extra as int?;
+            return BottomNavBar(navigatedIndex: index);
+          }),
     ],
   );
 }
