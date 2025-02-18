@@ -12,9 +12,9 @@ class ProfileWidget extends StatelessWidget {
           Stack(
             children: [
               ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(150),
                   child: Image.asset(
-                    Assets.images.logo.path,
+                    Assets.images.newlogo.path,
                     height: size.height * .2,
                     width: size.width * 0.45,
                   )),
@@ -22,7 +22,7 @@ class ProfileWidget extends StatelessWidget {
                 right: 0,
                 bottom: 10,
                 child: IconButton(
-                  icon: Icon(Icons.edit, color: Colors.blue, size: 30),
+                  icon: Icon(Icons.edit, color: Colors.blue, size: 35),
                   onPressed: () {
                     // Edit profile action
                   },
@@ -32,7 +32,7 @@ class ProfileWidget extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Text(
-            "User Name",
+            "FUND X",
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
