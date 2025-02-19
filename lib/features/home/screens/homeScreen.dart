@@ -1,6 +1,6 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:investement_app/core/widgets/custom_textfield.dart';
+import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
 import 'package:investement_app/features/home/widgets/cardListview.dart';
 import 'package:investement_app/features/home/widgets/darwerListTile.dart';
 import 'package:investement_app/features/home/widgets/menuList.dart';
@@ -59,19 +59,19 @@ class _HomepageState extends State<Homepage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             DrawerListtile(
               onTap: () {},
-              title: const Text(
+              title: Text(
                 'My Profile',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
-              icon: const Icon(Icons.close),
-              TraillerIcon: const Icon(
+              icon: Icon(Icons.close),
+              TraillerIcon: Icon(
                 Icons.arrow_forward_ios_rounded,
               ),
             ),
-            const SizedBox(
+            SizedBox(
               height: 20,
             ),
             ProfileWidget(),
@@ -84,7 +84,7 @@ class _HomepageState extends State<Homepage> {
           Container(
             margin: EdgeInsets.symmetric(
                 horizontal: size.width * 0.03, vertical: size.height * 0.01),
-            child: const TextFieldWidget(
+            child: TextFieldWidget(
                 label: 'Search Any project', icon: Icons.search),
           ),
 
@@ -94,7 +94,7 @@ class _HomepageState extends State<Homepage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'All Projects',
                   style: TextStyle(
                     fontSize: 20,
@@ -111,7 +111,7 @@ class _HomepageState extends State<Homepage> {
                     decoration: BoxDecoration(
                         border: Border.all(width: 2, color: Colors.grey),
                         borderRadius: BorderRadius.circular(10)),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
@@ -130,6 +130,7 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
           // SizedBox(height: size.height * 0.02),
+
           CardListView(
             cards: [
               {
@@ -154,7 +155,7 @@ class _HomepageState extends State<Homepage> {
               },
             ],
           ),
-          const CustomTextFormField(
+          CustomTextFormField(
               hintText: 'hintText',
               prefixIcon: Icon(Icons.search),
               label: 'label')
@@ -167,7 +168,7 @@ class _HomepageState extends State<Homepage> {
 void _showSortOptions(BuildContext context) {
   showModalBottomSheet(
     context: context,
-    shape: const RoundedRectangleBorder(
+    shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
     ),
     builder: (context) {
@@ -176,47 +177,47 @@ void _showSortOptions(BuildContext context) {
         child: Wrap(
           children: [
             ListTile(
-              leading: const Icon(Icons.sort_by_alpha),
-              title: const Text(
+              leading: Icon(Icons.sort_by_alpha),
+              title: Text(
                 'A-Z',
                 style: TextStyle(fontSize: 20),
               ),
               onTap: () {
                 Navigator.pop(context);
-                log('A-Z selected');
+                print('A-Z selected');
               },
             ),
             ListTile(
-              leading: const Icon(Icons.swap_vert),
-              title: const Text(
+              leading: Icon(Icons.swap_vert),
+              title: Text(
                 'Z-A',
                 style: TextStyle(fontSize: 20),
               ),
               onTap: () {
                 Navigator.pop(context);
-                log('Z-A selected');
+                print('Z-A selected');
               },
             ),
             ListTile(
-              leading: const Icon(Icons.calendar_today_outlined),
-              title: const Text(
+              leading: Icon(Icons.calendar_today_outlined),
+              title: Text(
                 'Newest First',
                 style: TextStyle(fontSize: 20),
               ),
               onTap: () {
                 Navigator.pop(context);
-                log('Newest First selected');
+                print('Newest First selected');
               },
             ),
             ListTile(
-              leading: const Icon(Icons.history_outlined),
-              title: const Text(
+              leading: Icon(Icons.history_outlined),
+              title: Text(
                 'Oldest First',
                 style: TextStyle(fontSize: 20),
               ),
               onTap: () {
                 Navigator.pop(context);
-                log('Oldest First selected');
+                print('Oldest First selected');
               },
             ),
           ],

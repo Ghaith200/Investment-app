@@ -4,11 +4,11 @@ import 'package:investement_app/features/home/screens/homeScreen.dart';
 import 'package:investement_app/features/login/screens/login_screen.dart';
 import 'package:investement_app/features/onboarding_screen/screens/onboarding_screen.dart';
 import 'package:investement_app/features/sign_up/screen/signUp.dart';
-import 'package:investement_app/features/sign_up/screen/landing_page.dart';
+import 'package:investement_app/features/sign_up/screen/startPage.dart';
 
 abstract class AppRouter {
   static final GoRouter goRouter = GoRouter(
-    initialLocation: LandingPage.id,
+    initialLocation: OnboardingScreen.id,
     routes: [
       GoRoute(
         path: LoginScreen.id,
