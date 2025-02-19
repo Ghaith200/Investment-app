@@ -4,8 +4,10 @@ allprojects {
         mavenCentral()
     }
     tasks.withType(JavaCompile) {
+
         options.compilerArgs << '-Xlint:-options' 
     }
+
 
 }
 
