@@ -14,126 +14,137 @@ class CardListView extends StatelessWidget {
       child: ListView.builder(
           itemCount: cards.length,
           itemBuilder: (context, index) {
-            return Column(children: [
-              Container(
-                margin: EdgeInsets.symmetric(
-                    horizontal: size.width * 0.05,
-                    vertical: size.height * 0.02),
-                height: size.height * 0.35,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 5,
-                      offset: Offset(0, 3),
+            return AspectRatio(
+              aspectRatio: 1 / .85,
+              child: IntrinsicHeight(
+                // width: size.width,
+                child: Column(children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.05,
                     ),
-                  ],
-                ),
-                child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Stack(alignment: Alignment.topCenter, children: [
-                        Container(
-                          height: size.height * 0.14,
-                          child: Image.asset(
-                            width: size.width,
-                            Assets
-                                .images.a00756f144a0fb5daaf68dbfc01103a46.path,
-                            fit: BoxFit.cover,
-                          ),
+                    // height: size.height * 0.35,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
                         ),
-                        Container(
-                          // margin: EdgeInsets.only(top: size.height * 0.02),
-                          height: size.height * 0.03,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.share_outlined,
-                                  color: const Color.fromARGB(255, 2, 0, 109),
-                                  size: size.height * 0.03,
-                                ),
+                      ],
+                    ),
+                    child: Column(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Stack(alignment: Alignment.topCenter, children: [
+                            Container(
+                              height: size.height * 0.14,
+                              child: Image.asset(
+                                width: size.width,
+                                Assets.images.a00756f144a0fb5daaf68dbfc01103a46
+                                    .path,
+                                fit: BoxFit.cover,
                               ),
-                              IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.bookmark_border_outlined,
-                                  color: const Color.fromARGB(255, 2, 0, 109),
-                                  size: size.height * 0.03,
+                            ),
+                            Container(
+                              // margin: EdgeInsets.only(top: size.height * 0.02),
+                              height: size.height * 0.03,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.share_outlined,
+                                      color:
+                                          const Color.fromARGB(255, 2, 0, 109),
+                                      size: size.height * 0.03,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.bookmark_border_outlined,
+                                      color:
+                                          const Color.fromARGB(255, 2, 0, 109),
+                                      size: size.height * 0.03,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ]),
+                          // SizedBox(height: size.height * 0.01),
+                          Container(
+                            // color: Colors.black12,
+                            child: Center(
+                              child: Column(children: [
+                                Text(
+                                  'Project name',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: size.height * 0.03),
                                 ),
+                                Text('A small description about the project'),
+                              ]),
+                            ),
+                          ),
+                          SizedBox(height: size.height * 0.01),
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Squaredbutton(
+                                text: 'Required Money:',
+                                icon: Icons.attach_money,
+                              ),
+                              Squaredbutton(
+                                text: 'Required Ratio:',
+                                icon: Icons.percent,
                               ),
                             ],
                           ),
-                        )
-                      ]),
-                      // SizedBox(height: size.height * 0.01),
-                      Container(
-                        // color: Colors.black12,
-                        child: Center(
-                          child: Column(children: [
-                            Text(
-                              'Project name',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: size.height * 0.03),
-                            ),
-                            Text('A small description about the project'),
-                          ]),
-                        ),
-                      ),
-                      SizedBox(height: size.height * 0.01),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Squaredbutton(
-                            text: 'Required Money:',
-                            icon: Icons.attach_money,
-                          ),
-                          Squaredbutton(
-                            text: 'Required Ratio:',
-                            icon: Icons.percent,
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: size.height * 0.02),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
+                          SizedBox(height: size.height * 0.02),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Container(
-                                height: size.height * 0.04,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.asset(
-                                      Assets
-                                          .images
-                                          .a00756f144a0fb5daaf68dbfc01103a46
-                                          .path,
-                                      fit: BoxFit.cover,
-                                    )),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Container(
+                                    height: size.height * 0.04,
+                                    child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          Assets
+                                              .images
+                                              .a00756f144a0fb5daaf68dbfc01103a46
+                                              .path,
+                                          fit: BoxFit.cover,
+                                        )),
+                                  ),
+                                  SizedBox(width: size.width * 0.01),
+                                  Text(
+                                    'Project Owner Name',
+                                    style:
+                                        TextStyle(color: Colors.blue.shade900),
+                                  )
+                                ],
                               ),
-                              SizedBox(width: size.width * 0.01),
-                              Text(
-                                'Project Owner Name',
-                                style: TextStyle(color: Colors.blue.shade900),
-                              )
+                              const Squaredbutton(
+                                text: 'View',
+                                icon: Icons.visibility,
+                              ),
                             ],
                           ),
-                          Squaredbutton(
-                            text: 'View',
-                            icon: Icons.visibility,
-                          ),
-                        ],
-                      ),
-                    ]),
+                        ]),
+                  ),
+                ]),
               ),
-            ]);
+            );
           }),
     );
   }
