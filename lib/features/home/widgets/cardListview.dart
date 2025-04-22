@@ -19,7 +19,7 @@ class CardListView extends StatelessWidget {
                 margin: EdgeInsets.symmetric(
                     horizontal: size.width * 0.05,
                     vertical: size.height * 0.02),
-                height: size.height * 0.35,
+                height: 324,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -36,11 +36,10 @@ class CardListView extends StatelessWidget {
                     children: [
                       Stack(alignment: Alignment.topCenter, children: [
                         Container(
-                          height: size.height * 0.14,
+                          height: size.height * 0.16,
                           child: Image.asset(
                             width: size.width,
-                            Assets
-                                .images.a00756f144a0fb5daaf68dbfc01103a46.path,
+                            Assets.images.project1.path,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -70,7 +69,7 @@ class CardListView extends StatelessWidget {
                           ),
                         )
                       ]),
-                      // SizedBox(height: size.height * 0.01),
+                      SizedBox(height: 8),
                       Container(
                         // color: Colors.black12,
                         child: Center(
@@ -85,18 +84,21 @@ class CardListView extends StatelessWidget {
                           ]),
                         ),
                       ),
-                      SizedBox(height: size.height * 0.01),
+                      SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Squaredbutton(
+                          const SizedBox(width: 10),
+                          SquaredButton(
                             text: 'Required Money:',
                             icon: Icons.attach_money,
                           ),
-                          Squaredbutton(
+                          const SizedBox(width: 10),
+                          SquaredButton(
                             text: 'Required Ratio:',
                             icon: Icons.percent,
                           ),
+                          const SizedBox(width: 10),
                         ],
                       ),
                       SizedBox(height: size.height * 0.02),
@@ -125,7 +127,7 @@ class CardListView extends StatelessWidget {
                               )
                             ],
                           ),
-                          Squaredbutton(
+                          SquaredButton(
                             text: 'View',
                             icon: Icons.visibility,
                           ),

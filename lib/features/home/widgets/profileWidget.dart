@@ -16,7 +16,6 @@ class ProfileWidget extends StatelessWidget {
                   child: Image.asset(
                     Assets.images.newlogo.path,
                     height: size.height * .2,
-                    width: size.width * 0.45,
                   )),
               Positioned(
                 right: 0,
@@ -24,13 +23,13 @@ class ProfileWidget extends StatelessWidget {
                 child: IconButton(
                   icon: Icon(Icons.edit, color: Colors.blue, size: 35),
                   onPressed: () {
-                    // Edit profile action
+                    // Todo: Edit profile action
                   },
                 ),
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
             "FUND X",
             style: TextStyle(

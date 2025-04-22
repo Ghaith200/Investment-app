@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:investement_app/features/Auth/select_auth_type_screen.dart';
 import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
 import 'package:investement_app/features/home/screens/homeScreen.dart';
 import 'package:investement_app/features/login/screens/login_screen.dart';
@@ -34,6 +35,11 @@ abstract class AppRouter {
         path: LandingPage.id,
         name: LandingPage.id,
         builder: (context, state) => const LandingPage(),
+      ),
+      GoRoute(
+        path: SelectAuthTypeScreen.id,
+        name: SelectAuthTypeScreen.id,
+        builder: (context, state) => const SelectAuthTypeScreen(),
       ),
       GoRoute(
           path: BottomNavBar.id,

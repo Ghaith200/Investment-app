@@ -3,8 +3,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:investement_app/core/utils/app_colors.dart';
+import 'package:investement_app/features/Auth/select_auth_type_screen.dart';
 import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
 import 'package:investement_app/features/home/screens/homeScreen.dart';
+import 'package:investement_app/features/login/screens/login_screen.dart';
 import 'package:investement_app/features/onboarding_screen/widgets/Subtitle.dart';
 import 'package:investement_app/features/onboarding_screen/widgets/title.dart';
 import 'package:investement_app/gen/assets.gen.dart';
@@ -55,7 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               curve: Curves.easeInOut,
             );
           } else {
-            GoRouter.of(context).go(BottomNavBar.id, extra: 2);
+            GoRouter.of(context).go(SelectAuthTypeScreen.id);
           }
         },
         child: Padding(
@@ -107,10 +109,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   duration: const Duration(milliseconds: 300),
                                   margin:
                                       const EdgeInsets.symmetric(horizontal: 5),
-                                  height: 4, // Fixed height for all lines
-                                  width: index == currentIndex
-                                      ? 40
-                                      : 20, // Active line is wider
+                                  height: 4,
+                                  width: index == currentIndex ? 40 : 20,
                                   decoration: BoxDecoration(
                                     color: index == currentIndex
                                         ? AppColors.blue
@@ -122,14 +122,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                           ),
                           const SizedBox(height: 20),
-                          // Title (Bold)
+                          // Title
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 20.0),
                             child: OnboardingTitle(title: slide["title"]!),
                           ),
                           const SizedBox(height: 20),
-                          // Subtitle (Regular)
+                          // Subtitle
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 20.0),

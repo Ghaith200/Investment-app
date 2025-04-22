@@ -1,42 +1,47 @@
 import 'package:flutter/material.dart';
 
-class Squaredbutton extends StatelessWidget {
+class SquaredButton extends StatelessWidget {
   final String text;
   final IconData icon;
+  final VoidCallback? onTap;
 
-  const Squaredbutton({
+  const SquaredButton({
     Key? key,
     required this.text,
     required this.icon,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        backgroundColor: Colors.white,
-        shadowColor: Colors.blueAccent.withOpacity(0.3),
-        elevation: 5,
-      ),
-      onPressed: () {},
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            text,
-            style: const TextStyle(
-              fontSize: 15,
-              // fontWeight: FontWeight.bold,
-              // color: Colors.black,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(6),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.blueAccent.withOpacity(0.5),
+              blurRadius: 5,
+              offset: const Offset(0, 3),
             ),
-          ),
-          const SizedBox(width: 10),
-          Icon(icon, color: Colors.blue, size: 20),
-        ],
+          ],
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              text,
+              style: const TextStyle(
+                fontSize: 15,
+              ),
+            ),
+            const SizedBox(width: 8),
+            Icon(icon, color: Colors.blue, size: 20),
+          ],
+        ),
       ),
     );
   }
