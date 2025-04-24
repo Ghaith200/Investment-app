@@ -42,9 +42,6 @@ class $AssetsImagesGen {
   AssetGenImage get a00756f144a0fb5daaf68dbfc01103a46 =>
       const AssetGenImage('assets/images/00756f144a0fb5daaf68dbfc01103a46.png');
 
-  /// File path: assets/images/5.png
-  AssetGenImage get a5 => const AssetGenImage('assets/images/5.png');
-
   /// File path: assets/images/Shapes.png
   AssetGenImage get shapes => const AssetGenImage('assets/images/Shapes.png');
 
@@ -54,6 +51,10 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/btn_shape.svg
   SvgGenImage get btnShape => const SvgGenImage('assets/images/btn_shape.svg');
+
+  /// File path: assets/images/btn_shape_1.png
+  AssetGenImage get btnShape1 =>
+      const AssetGenImage('assets/images/btn_shape_1.png');
 
   /// Directory path: assets/images/icons
   $AssetsImagesIconsGen get icons => const $AssetsImagesIconsGen();
@@ -107,10 +108,10 @@ class $AssetsImagesGen {
   /// List of all assets
   List<dynamic> get values => [
         a00756f144a0fb5daaf68dbfc01103a46,
-        a5,
         shapes,
         arrowRight,
         btnShape,
+        btnShape1,
         logo,
         newlogo,
         newlogo2,

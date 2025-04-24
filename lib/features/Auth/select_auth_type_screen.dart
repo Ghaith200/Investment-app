@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:investement_app/core/widgets/custom_auth_bar.dart';
 import 'package:investement_app/core/widgets/custom_button.dart';
+import 'package:investement_app/features/login/screens/login_screen.dart';
+import 'package:investement_app/features/sign_up/screen/signUp.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
 class SelectAuthTypeScreen extends StatelessWidget {
@@ -14,15 +17,28 @@ class SelectAuthTypeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: Column(
                 children: [
-                  Image.asset(Assets.images.startpage.path, height: 240),
-                  SizedBox(height: 40),
-                  CustomButton(text: 'Sign in', onPressed: () {}),
-                  SizedBox(height: 20),
-                  CustomButton(text: 'Log in', onPressed: () {}),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 13, vertical: 30),
+                    child:
+                        Image.asset(Assets.images.startpage.path, height: 240),
+                  ),
+                  const SizedBox(height: 99),
+                  CustomButton(
+                      text: 'Log in',
+                      onPressed: () {
+                        context.pushNamed(LoginScreen.id);
+                      }),
+                  const SizedBox(height: 37),
+                  CustomButton(
+                      text: 'Sign up',
+                      onPressed: () {
+                        context.pushNamed(SignUpPage.id);
+                      }),
                 ],
               ),
             ),
@@ -30,13 +46,16 @@ class SelectAuthTypeScreen extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
               child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  style: TextStyle(color: Colors.black, fontSize: 14),
+                text: const TextSpan(
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
                   children: [
                     TextSpan(text: 'By Continuing You Accept Our '),
                     TextSpan(
-                      text: 'Terms Of Service',
+                      text: '\nTerms Of Service',
                       style: TextStyle(color: Colors.blueAccent),
                     ),
                     TextSpan(text: ' And '),
