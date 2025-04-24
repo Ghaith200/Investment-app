@@ -1,6 +1,7 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:heroicons/heroicons.dart';
+import 'package:investement_app/core/utils/app_colors.dart';
 import 'package:investement_app/features/home/screens/homeScreen.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -19,15 +20,16 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  final int _homeIndex = 2;
+  final int _homeIndex = 0;
   late int _selectedIndex;
 
   final List<Widget> pages = [
-    Center(child: Text("Profile Screen")), // Replace with your actual screen
-    Center(child: Text("Cart Screen")), // Replace with your actual screen
     const Homepage(),
-    Center(child: Text("Reservations Screen")), // Replace with your actual screen
-    Center(child: Text("Plans Screen")), // Replace with your actual screen
+    Center(
+        child: Text("Profile Screen")), //Todo: Replace with your actual screen
+    Center(child: Text("Cart Screen")), //Todo: Replace with your actual screen
+    Center(child: Text("saved Screen")), //Todo: Replace with your actual screen
+    Center(child: Text("Plans Screen")), //Todo: Replace with your actual screen
   ];
 
   void updateSelectedIndex(int index) {
@@ -50,19 +52,26 @@ class _BottomNavBarState extends State<BottomNavBar> {
         children: pages,
       ),
       bottomNavigationBar: ConvexAppBar(
-        backgroundColor: Colors.grey,
+        top: 0,
+        backgroundColor: AppColors.blackWhite,
+        color: AppColors.blue,
+        activeColor: AppColors.blue,
         height: 70,
-        activeColor: Colors.white,
         style: TabStyle.fixedCircle,
         cornerRadius: 20,
         curveSize: 115,
-        color: Colors.white,
         items: const [
-          TabItem(icon: Icons.person, title: "Profile"),
-          TabItem(icon: Icons.shopping_cart, title: "Cart"),
-          TabItem(icon: Icons.home, title: "Home"),
-          TabItem(icon: Icons.list, title: "Reservations"),
-          TabItem(icon: Icons.card_travel, title: "Plans"),
+          TabItem(
+              icon: HeroIcon(
+                HeroIcons.home,
+                style: HeroIconStyle.solid,
+                color: AppColors.blue,
+              ),
+              title: "Home"),
+          TabItem(icon: Icons.shopping_cart, title: "Chat"),
+          TabItem(icon: Icons.add, title: "Add"),
+          TabItem(icon: Icons.list, title: "Saved"),
+          TabItem(icon: Icons.card_travel, title: "Card"),
         ],
         initialActiveIndex: _selectedIndex,
         onTap: (int index) {

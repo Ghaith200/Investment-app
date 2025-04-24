@@ -1,76 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:investement_app/core/constants/app_text_styles.dart';
-
+import 'package:investement_app/gen/assets.gen.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-    required this.onTap,
-    this.title,
-    this.color = const Color(0xff964B00),
-    this.width,
-    this.height,
-    this.image,
-    this.filled = true,
-    this.isCircle = false,
-    this.boarderRadius,
-    this.child,
-    this.radius,
-    this.titleTextStyle,
-    this.boxShadow,
-  });
-
-  final void Function()? onTap;
-  final String? title;
-  final Color color;
-  final ImageProvider<Object>? image;
+  final String text;
+  final VoidCallback onPressed;
   final double? width;
   final double? height;
-  final double? radius;
-  final double? boarderRadius;
-  final bool filled;
-  final bool isCircle;
-  final Widget? child;
-  final TextStyle? titleTextStyle;
-  final List<BoxShadow>? boxShadow;
+
+  const CustomButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.width,
+    this.height,
+  });
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        clipBehavior: Clip.hardEdge,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          boxShadow: boxShadow,
-          shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
-          color: filled ? color : Color(0xff964B00),
-          borderRadius:
-              isCircle ? null : BorderRadius.circular(boarderRadius ?? 0),
-          border: filled
-              ? null
-              : Border.all(
-                  color: Color(0xff964B00),
+      onTap: onPressed,
+      child: Stack(
+        clipBehavior: Clip.antiAlias,
+        children: [
+          Container(
+            width: width ?? 365,
+            height: height ?? 72,
+            decoration: BoxDecoration(
+              color: const Color(0xFF304FFE),
+              borderRadius: BorderRadius.circular(28),
+            ),
+            child: TextButton(
+              onPressed: onPressed,
+              child: Center(
+                child: Text(
+                  text,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w400),
                 ),
-          image: image == null
-              ? null
-              : DecorationImage(
-                  image: image!,
-                  fit: BoxFit.cover,
-                ),
-        ),
-        height: radius ?? height,
-        width: radius ?? width,
-        child: child ??
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Text(
-                title ?? "",
-                style: titleTextStyle ??
-                    (filled
-                        ? AppTextStyles.hevoLight25WhitekW900
-                        : AppTextStyles.hevoLight25BlackWhiteW900),
               ),
             ),
+          ),
+          Positioned(
+            right: 0,
+            top: 0,
+            child: Image.asset(
+              Assets.images.btnShape1.path,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
       ),
     );
   }

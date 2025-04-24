@@ -49,6 +49,13 @@ class $AssetsImagesGen {
   AssetGenImage get arrowRight =>
       const AssetGenImage('assets/images/arrow_right.png');
 
+  /// File path: assets/images/btn_shape.svg
+  SvgGenImage get btnShape => const SvgGenImage('assets/images/btn_shape.svg');
+
+  /// File path: assets/images/btn_shape_1.png
+  AssetGenImage get btnShape1 =>
+      const AssetGenImage('assets/images/btn_shape_1.png');
+
   /// Directory path: assets/images/icons
   $AssetsImagesIconsGen get icons => const $AssetsImagesIconsGen();
 
@@ -82,6 +89,14 @@ class $AssetsImagesGen {
   AssetGenImage get profilePhoto =>
       const AssetGenImage('assets/images/profilePhoto.jpeg');
 
+  /// File path: assets/images/project_1.png
+  AssetGenImage get project1 =>
+      const AssetGenImage('assets/images/project_1.png');
+
+  /// File path: assets/images/project_2.png
+  AssetGenImage get project2 =>
+      const AssetGenImage('assets/images/project_2.png');
+
   /// File path: assets/images/splash_screen.png
   AssetGenImage get splashScreen =>
       const AssetGenImage('assets/images/splash_screen.png');
@@ -91,10 +106,12 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/startpage.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
         a00756f144a0fb5daaf68dbfc01103a46,
         shapes,
         arrowRight,
+        btnShape,
+        btnShape1,
         logo,
         newlogo,
         newlogo2,
@@ -103,6 +120,8 @@ class $AssetsImagesGen {
         onboarding2,
         onboarding3,
         profilePhoto,
+        project1,
+        project2,
         splashScreen,
         startpage
       ];

@@ -4,6 +4,7 @@ import 'package:investement_app/core/utils/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:investement_app/core/utils/app_utils.dart';
 import 'package:investement_app/gen/assets.gen.dart';
+
 enum CustomTextFieldType { phone, email, password, name, text }
 
 class CustomTextFormField extends StatefulWidget {
@@ -56,7 +57,7 @@ class CustomTextFormField extends StatefulWidget {
     this.validator,
     this.isReadOnly,
     this.customValidation = false,
-    this.borderColor = AppColors.brown,
+    this.borderColor = AppColors.blue,
     this.inputTextStyle, // Add the new parameter
   });
   @override

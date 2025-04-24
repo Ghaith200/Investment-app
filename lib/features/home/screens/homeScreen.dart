@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:investement_app/core/widgets/custom_textfield.dart';
-import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
 import 'package:investement_app/features/home/widgets/cardListview.dart';
 import 'package:investement_app/features/home/widgets/darwerListTile.dart';
 import 'package:investement_app/features/home/widgets/menuList.dart';
