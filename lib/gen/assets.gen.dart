@@ -59,6 +59,10 @@ class $AssetsImagesGen {
   /// Directory path: assets/images/icons
   $AssetsImagesIconsGen get icons => const $AssetsImagesIconsGen();
 
+  /// File path: assets/images/investor.png
+  AssetGenImage get investor =>
+      const AssetGenImage('assets/images/investor.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
@@ -85,6 +89,9 @@ class $AssetsImagesGen {
   AssetGenImage get onboarding3 =>
       const AssetGenImage('assets/images/onboarding_3.png');
 
+  /// File path: assets/images/owner.png
+  AssetGenImage get owner => const AssetGenImage('assets/images/owner.png');
+
   /// File path: assets/images/profilePhoto.jpeg
   AssetGenImage get profilePhoto =>
       const AssetGenImage('assets/images/profilePhoto.jpeg');
@@ -105,6 +112,10 @@ class $AssetsImagesGen {
   AssetGenImage get startpage =>
       const AssetGenImage('assets/images/startpage.png');
 
+  /// File path: assets/images/top_screen_shapes.svg
+  SvgGenImage get topScreenShapes =>
+      const SvgGenImage('assets/images/top_screen_shapes.svg');
+
   /// List of all assets
   List<dynamic> get values => [
         a00756f144a0fb5daaf68dbfc01103a46,
@@ -112,6 +123,7 @@ class $AssetsImagesGen {
         arrowRight,
         btnShape,
         btnShape1,
+        investor,
         logo,
         newlogo,
         newlogo2,
@@ -119,11 +131,13 @@ class $AssetsImagesGen {
         onboarding1,
         onboarding2,
         onboarding3,
+        owner,
         profilePhoto,
         project1,
         project2,
         splashScreen,
-        startpage
+        startpage,
+        topScreenShapes
       ];
 }
 

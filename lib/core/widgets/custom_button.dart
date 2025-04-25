@@ -20,7 +20,6 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Stack(
-        clipBehavior: Clip.antiAlias,
         children: [
           Container(
             width: width ?? 365,

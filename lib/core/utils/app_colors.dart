@@ -12,7 +12,8 @@ class AppColors {
   // // Static color definitions
   static const Color blue = Color(0xFF304FFE);
   static const Color white = Color(0xFFFFFFFF);
-  static const Color lightgreen = Color.fromARGB(165, 27, 189, 65);
+  static const Color lightGreen = Color.fromARGB(165, 27, 189, 65);
+  static const Color darkGreen = Color(0xFF092E0D);
   static const Color red = Color.fromARGB(255, 255, 0, 0);
   // // static const Color gery = Colors.grey;
 
