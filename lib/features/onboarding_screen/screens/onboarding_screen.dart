@@ -1,13 +1,9 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:investement_app/core/utils/app_colors.dart';
 import 'package:investement_app/features/Auth/select_auth_type_screen.dart';
-import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
-import 'package:investement_app/features/home/screens/homeScreen.dart';
-import 'package:investement_app/features/login/screens/login_screen.dart';
-import 'package:investement_app/features/onboarding_screen/widgets/Subtitle.dart';
+import 'package:investement_app/features/onboarding_screen/widgets/onboarding_subtitle.dart';
 import 'package:investement_app/features/onboarding_screen/widgets/title.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:heroicons/heroicons.dart';
 import 'package:investement_app/core/utils/app_colors.dart';
 import 'package:investement_app/core/widgets/custom_auth_bar.dart';
-import 'package:investement_app/features/home/widgets/textfield.dart';
+import 'package:investement_app/core/widgets/custom_textfield.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,8 +17,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -30,11 +31,11 @@ class _LoginScreenState extends State<LoginScreen> {
               fit: BoxFit.cover,
             ),
           ),
-          Column(
+          const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomAuthBar(),
-              const Padding(
+              CustomAuthBar(),
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,6 +57,47 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+                    SizedBox(height: 25),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CustomTextFormField(
+                          label: 'Full Name',
+                          hintText: 'Full Name',
+                          prefixIcon: HeroIcon(
+                            HeroIcons.users,
+                            style: HeroIconStyle.solid,
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        CustomTextFormField(
+                          label: 'User Name',
+                          hintText: 'User Name',
+                          prefixIcon: HeroIcon(
+                            HeroIcons.atSymbol,
+                            style: HeroIconStyle.solid,
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        CustomTextFormField(
+                          label: 'Email',
+                          hintText: 'Email',
+                          prefixIcon: HeroIcon(
+                            HeroIcons.envelope,
+                            style: HeroIconStyle.solid,
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        CustomTextFormField(
+                          label: 'Password',
+                          hintText: 'Password',
+                          prefixIcon: HeroIcon(
+                            HeroIcons.eye,
+                            style: HeroIconStyle.solid,
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),

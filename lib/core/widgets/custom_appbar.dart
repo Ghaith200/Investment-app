@@ -1,10 +1,7 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import "package:go_router/go_router.dart";
-import 'package:investement_app/core/constants/storage_keys.dart';
 import 'package:investement_app/core/utils/app_utils.dart';
-import 'package:investement_app/core/utils/storage.dart';
 
 class CustomAppBars extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBars({

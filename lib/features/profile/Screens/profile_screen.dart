@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:investement_app/features/home/widgets/textfield.dart';
-import 'package:investement_app/features/profile/widgets/PhotoWithIcon.dart';
+import 'package:investement_app/features/home/widgets/text_field.dart';
+import 'package:investement_app/features/profile/widgets/photo_with_icon.dart';
 
 class Profilescreen extends StatefulWidget {
   const Profilescreen({super.key});
@@ -27,7 +27,7 @@ class _ProfilescreenState extends State<Profilescreen> {
           SizedBox(
             height: size.height * 0.05,
           ),
-          Photowithicon(),
+          const Photowithicon(),
           SizedBox(
             height: size.height * 0.05,
           ),
@@ -36,27 +36,27 @@ class _ProfilescreenState extends State<Profilescreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextFieldWidget(
+                const TextFieldWidget(
                   label: 'Full Name',
                   icon: Icons.person_outline,
                 ),
                 SizedBox(height: size.height * 0.02),
-                TextFieldWidget(
+                const TextFieldWidget(
                   label: 'User Name',
                   icon: Icons.alternate_email,
                 ),
                 SizedBox(height: size.height * 0.02),
-                TextFieldWidget(
+                const TextFieldWidget(
                   label: 'Phone Number',
                   icon: Icons.phone_android_outlined,
                 ),
                 SizedBox(height: size.height * 0.02),
-                TextFieldWidget(
+                const TextFieldWidget(
                   label: 'Email',
                   icon: Icons.email_outlined,
                 ),
                 SizedBox(height: size.height * 0.02),
-                TextFieldWidget(
+                const TextFieldWidget(
                   label: 'Password',
                   icon: Icons.remove_red_eye,
                   isPassword: true,
@@ -80,7 +80,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                   elevation: 10,
                 ),
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   'Edit',
                   style: TextStyle(fontSize: 29, color: Colors.white),
                 ),

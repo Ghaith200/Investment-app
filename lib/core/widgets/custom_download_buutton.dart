@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 import 'dart:io';
-import 'dart:developer';
 
 import 'package:investement_app/core/utils/app_colors.dart';
 

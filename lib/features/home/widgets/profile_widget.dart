@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
 class ProfileWidget extends StatelessWidget {
+  const ProfileWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -21,7 +23,7 @@ class ProfileWidget extends StatelessWidget {
                 right: 0,
                 bottom: 10,
                 child: IconButton(
-                  icon: Icon(Icons.edit, color: Colors.blue, size: 35),
+                  icon: const Icon(Icons.edit, color: Colors.blue, size: 35),
                   onPressed: () {
                     // Todo: Edit profile action
                   },
@@ -30,7 +32,7 @@ class ProfileWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-          Text(
+          const Text(
             "FUND X",
             style: TextStyle(
               fontSize: 24,

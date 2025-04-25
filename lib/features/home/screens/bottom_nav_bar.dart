@@ -2,7 +2,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
 import 'package:investement_app/core/utils/app_colors.dart';
-import 'package:investement_app/features/home/screens/homeScreen.dart';
+import 'package:investement_app/features/home/screens/home_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key, this.navigatedIndex});
@@ -25,11 +25,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<Widget> pages = [
     const Homepage(),
-    Center(
+    const Center(
         child: Text("Profile Screen")), //Todo: Replace with your actual screen
-    Center(child: Text("Cart Screen")), //Todo: Replace with your actual screen
-    Center(child: Text("saved Screen")), //Todo: Replace with your actual screen
-    Center(child: Text("Plans Screen")), //Todo: Replace with your actual screen
+    const Center(child: Text("Cart Screen")), //Todo: Replace with your actual screen
+    const Center(child: Text("saved Screen")), //Todo: Replace with your actual screen
+    const Center(child: Text("Plans Screen")), //Todo: Replace with your actual screen
   ];
 
   void updateSelectedIndex(int index) {

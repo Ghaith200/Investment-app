@@ -3,8 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:investement_app/core/widgets/custom_auth_bar.dart';
 import 'package:investement_app/core/widgets/custom_button.dart';
 import 'package:investement_app/features/Auth/select_category_screen.dart';
-import 'package:investement_app/features/login/screens/login_screen.dart';
-import 'package:investement_app/features/sign_up/screen/signUp.dart';
+
 import 'package:investement_app/gen/assets.gen.dart';
 
 class SelectAuthTypeScreen extends StatelessWidget {
@@ -16,7 +15,7 @@ class SelectAuthTypeScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          CustomAuthBar(),
+          const CustomAuthBar(),
           const SizedBox(height: 20),
           Expanded(
             child: Column(

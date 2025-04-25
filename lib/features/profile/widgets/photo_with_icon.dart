@@ -7,7 +7,7 @@ class Photowithicon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       // color: Colors.amber,
       height: size.height * 0.2,
       width: size.width * 0.4,
@@ -24,7 +24,7 @@ class Photowithicon extends StatelessWidget {
               bottom: size.height * 0.03,
               right: size.width * 0.05,
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white,
                   boxShadow: [
@@ -36,7 +36,7 @@ class Photowithicon extends StatelessWidget {
                   ],
                 ),
                 child: IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.camera_alt,
                     color: Colors.black,
                     size: 27,

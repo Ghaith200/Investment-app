@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:investement_app/features/login/screens/login_screen.dart';
-import 'package:investement_app/features/sign_up/screen/signUp.dart';
+import 'package:investement_app/features/sign_up/screen/sign_up.dart';
 
 class LandingPage extends StatefulWidget {
   static const id = '/LandingPage';
@@ -19,7 +19,7 @@ class _LandingPageState extends State<LandingPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {},
         ),
         bottom: PreferredSize(
@@ -32,7 +32,7 @@ class _LandingPageState extends State<LandingPage> {
       ),
       body: ListView(
         children: [
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Container(
             height: size.height * 0.4,
             // child: Image.asset('assets/images/startpage.png'),
@@ -52,9 +52,9 @@ class _LandingPageState extends State<LandingPage> {
               ),
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => SignUpPage()));
+                    context, MaterialPageRoute(builder: (_) => const SignUpPage()));
               },
-              child: Text(
+              child: const Text(
                 'Sign Up',
                 style: TextStyle(fontSize: 29, color: Colors.white),
               ),
@@ -75,9 +75,9 @@ class _LandingPageState extends State<LandingPage> {
               ),
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => LoginScreen()));
+                    context, MaterialPageRoute(builder: (_) => const LoginScreen()));
               },
-              child: Text(
+              child: const Text(
                 'Log In',
                 style: TextStyle(fontSize: 29, color: Colors.white),
               ),
@@ -86,7 +86,7 @@ class _LandingPageState extends State<LandingPage> {
           SizedBox(height: size.height * 0.2),
           Container(
             margin: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-            child: Row(
+            child: const Row(
               children: [
                 Text(
                   'By Continuing, you agree to our',
@@ -100,7 +100,7 @@ class _LandingPageState extends State<LandingPage> {
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-            child: Row(
+            child: const Row(
               children: [
                 Text(
                   'Terms and Conditions',

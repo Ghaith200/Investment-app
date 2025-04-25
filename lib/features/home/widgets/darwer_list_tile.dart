@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class DrawerListtile extends StatefulWidget {
   final Text title;
   final Icon icon;
-  final Icon TraillerIcon;
+  final Icon traillerIcon;
   final VoidCallback onTap;
   const DrawerListtile({
     super.key,
     required this.title,
     required this.icon,
-    required this.TraillerIcon,
+    required this.traillerIcon,
     required this.onTap,
   });
 

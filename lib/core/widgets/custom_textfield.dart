@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:investement_app/core/constants/app_text_styles.dart';
 import 'package:investement_app/core/utils/app_colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:investement_app/core/utils/app_utils.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
@@ -161,7 +160,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               hintStyle: widget.hintTextStyle ??
                   AppTextStyles.hevoLight15WhiteBlackW500,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(6),
+                borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(
                   color:
                       _hasValidationError ? AppColors.red : widget.borderColor,
@@ -169,16 +168,16 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(6),
-                borderSide: const BorderSide(
-                  color: Color(0xffFF8C01),
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(
+                  color: AppColors.grey,
                   width: 1,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(6),
-                borderSide: const BorderSide(
-                  color: Color(0xffFF8C01),
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(
+                  color: AppColors.grey,
                   width: 1.5,
                 ),
               ),
@@ -232,21 +231,4 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     }
     return null;
   }
-
-  /// Returns an [OutlineInputBorder] with a circular border radius of 10
-  /// and a border side with the given [color].
-  ///
-  /// This is used to style the border of a [TextFormField].
-  ///
-  /// The [color] parameter is the color of the border side of the
-  /// [OutlineInputBorder].
-  ///
-  /// The returned [OutlineInputBorder] has a [BorderRadius.circular] of 10
-  /// and a [BorderSide] with the given [color].
-  // OutlineInputBorder _buildBorder({required Color color}) {
-  //   return OutlineInputBorder(
-  //     borderRadius: BorderRadius.circular(10.r),
-  //     borderSide: BorderSide(color: color),
-  //   );
-  // }
 }
