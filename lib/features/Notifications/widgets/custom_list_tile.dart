@@ -34,15 +34,15 @@ class Customlisttile extends StatelessWidget {
         ),
         title: Text(
           title,
-          style: TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18),
         ),
         subtitle: Text(
           subtitle,
-          style: TextStyle(fontSize: 14),
+          style: const TextStyle(fontSize: 14),
         ),
         trailing: Text(
           time,
-          style: TextStyle(fontSize: 15),
+          style: const TextStyle(fontSize: 15),
         ),
         onTap: onTap,
       ),

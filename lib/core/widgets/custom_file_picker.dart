@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:investement_app/core/utils/app_snack_bar.dart';
 
 class CustomFilePicker extends StatefulWidget {
   final Function(File? file, String? fileName, int? fileSize)
@@ -11,10 +10,10 @@ class CustomFilePicker extends StatefulWidget {
   const CustomFilePicker({super.key, required this.onFilePicked});
 
   @override
-  _CustomFilePickerState createState() => _CustomFilePickerState();
+  CustomFilePickerState createState() => CustomFilePickerState();
 }
 
-class _CustomFilePickerState extends State<CustomFilePicker> {
+class CustomFilePickerState extends State<CustomFilePicker> {
   File? selectedFile;
   String? _fileName;
   int? _fileSize;

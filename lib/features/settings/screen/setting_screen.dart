@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:investement_app/features/settings/widgets/CustomeRow.dart';
+import 'package:investement_app/features/settings/widgets/custome_row.dart';
 
-class Settingscreen extends StatefulWidget {
-  const Settingscreen({super.key});
+class settingsScreen extends StatefulWidget {
+  const settingsScreen.settingsScreen({super.key});
 
   @override
-  State<Settingscreen> createState() => _SettingscreenState();
+  State<settingsScreen> createState() => _settingsScreenState();
 }
 
-class _SettingscreenState extends State<Settingscreen> {
+class _settingsScreenState extends State<settingsScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

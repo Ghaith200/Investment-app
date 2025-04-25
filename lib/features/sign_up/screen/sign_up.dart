@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:investement_app/features/home/widgets/textfield.dart';
+import 'package:investement_app/features/home/widgets/text_field.dart';
 
 class SignUpPage extends StatefulWidget {
   static const id = 'SignUpPage';
@@ -32,7 +32,7 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-            child: Text('Add your personal Info',
+            child: const Text('Add your personal Info',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 26,
@@ -44,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-            child: Text('This Info Needs To Be Accurate With Your ID Document',
+            child: const Text('This Info Needs To Be Accurate With Your ID Document',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 24,
@@ -59,22 +59,22 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextFieldWidget(
+                const TextFieldWidget(
                   label: 'Full Name',
                   icon: Icons.person_outline,
                 ),
                 SizedBox(height: size.height * 0.05),
-                TextFieldWidget(
+                const TextFieldWidget(
                   label: 'User Name',
                   icon: Icons.alternate_email,
                 ),
                 SizedBox(height: size.height * 0.05),
-                TextFieldWidget(
+                const TextFieldWidget(
                   label: 'Email',
                   icon: Icons.email_outlined,
                 ),
                 SizedBox(height: size.height * 0.05),
-                TextFieldWidget(
+                const TextFieldWidget(
                   label: 'Password',
                   icon: Icons.remove_red_eye,
                   isPassword: true,
@@ -99,9 +99,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 onPressed: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => SignUpPage()));
+                      context, MaterialPageRoute(builder: (_) => const SignUpPage()));
                 },
-                child: Text(
+                child: const Text(
                   'Continue',
                   style: TextStyle(fontSize: 29, color: Colors.white),
                 ),

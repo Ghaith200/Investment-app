@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class SortListWidget extends StatefulWidget {
   final List<String> items; // List to be sorted
 
-  const SortListWidget({Key? key, required this.items}) : super(key: key);
+  const SortListWidget({super.key, required this.items});
 
   @override
-  _SortListWidgetState createState() => _SortListWidgetState();
+  SortListWidgetState createState() => SortListWidgetState();
 }
 
-class _SortListWidgetState extends State<SortListWidget> {
+class SortListWidgetState extends State<SortListWidget> {
   late List<String> sortedItems;
   String selectedSort = "A-Z";
 

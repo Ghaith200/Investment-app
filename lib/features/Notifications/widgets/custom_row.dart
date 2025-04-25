@@ -20,7 +20,7 @@ class CustomRow extends StatelessWidget {
         children: [
           Text(
             leftText,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24,
               color: Colors.black87,
               fontWeight: FontWeight.w600,
@@ -30,7 +30,7 @@ class CustomRow extends StatelessWidget {
             onPressed: onTap,
             child: Text(
               rightText,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 21,
               ),

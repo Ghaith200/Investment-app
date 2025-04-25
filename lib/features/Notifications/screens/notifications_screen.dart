@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:investement_app/features/Notifications/widgets/CustomRow.dart';
-import 'package:investement_app/features/Notifications/widgets/customListTile.dart';
+import 'package:investement_app/features/Notifications/widgets/custom_row.dart';
+import 'package:investement_app/features/Notifications/widgets/custom_list_tile.dart';
 
 class Notificationsscreen extends StatefulWidget {
   const Notificationsscreen({super.key});
@@ -58,7 +58,7 @@ class _NotificationsscreenState extends State<Notificationsscreen> {
             SizedBox(
               height: size.height * 0.015,
             ),
-            CustomRow(leftText: 'Yesterday'),
+            const CustomRow(leftText: 'Yesterday'),
             SizedBox(
               height: size.height * 0.015,
             ),
@@ -82,7 +82,7 @@ class _NotificationsscreenState extends State<Notificationsscreen> {
             SizedBox(
               height: size.height * 0.015,
             ),
-            CustomRow(leftText: 'Last Week'),
+            const CustomRow(leftText: 'Last Week'),
             SizedBox(
               height: size.height * 0.015,
             ),

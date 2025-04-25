@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:investement_app/features/home/widgets/SquaredButton.dart';
+import 'package:investement_app/features/home/widgets/squared_button.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
 class CardListView extends StatelessWidget {
@@ -9,7 +9,7 @@ class CardListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       height: size.height,
       child: ListView.builder(
           itemCount: cards.length,
@@ -35,7 +35,7 @@ class CardListView extends StatelessWidget {
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Stack(alignment: Alignment.topCenter, children: [
-                        Container(
+                        SizedBox(
                           height: size.height * 0.16,
                           child: Image.asset(
                             width: size.width,
@@ -43,7 +43,7 @@ class CardListView extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           // margin: EdgeInsets.only(top: size.height * 0.02),
                           height: size.height * 0.03,
                           child: Row(
@@ -69,36 +69,33 @@ class CardListView extends StatelessWidget {
                           ),
                         )
                       ]),
-                      SizedBox(height: 8),
-                      Container(
-                        // color: Colors.black12,
-                        child: Center(
-                          child: Column(children: [
-                            Text(
-                              'Project name',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: size.height * 0.03),
-                            ),
-                            Text('A small description about the project'),
-                          ]),
-                        ),
+                      const SizedBox(height: 8),
+                      Center(
+                        child: Column(children: [
+                          Text(
+                            'Project name',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: size.height * 0.03),
+                          ),
+                          const Text('A small description about the project'),
+                        ]),
                       ),
-                      SizedBox(height: 8),
-                      Row(
+                      const SizedBox(height: 8),
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          const SizedBox(width: 10),
+                          SizedBox(width: 10),
                           SquaredButton(
                             text: 'Required Money:',
                             icon: Icons.attach_money,
                           ),
-                          const SizedBox(width: 10),
+                          SizedBox(width: 10),
                           SquaredButton(
                             text: 'Required Ratio:',
                             icon: Icons.percent,
                           ),
-                          const SizedBox(width: 10),
+                          SizedBox(width: 10),
                         ],
                       ),
                       SizedBox(height: size.height * 0.02),
@@ -108,7 +105,7 @@ class CardListView extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Container(
+                              SizedBox(
                                 height: size.height * 0.04,
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(50),
@@ -127,7 +124,7 @@ class CardListView extends StatelessWidget {
                               )
                             ],
                           ),
-                          SquaredButton(
+                          const SquaredButton(
                             text: 'View',
                             icon: Icons.visibility,
                           ),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:investement_app/features/Notifications/screens/NotificationsScreen.dart';
-import 'package:investement_app/features/profile/Screens/profileScreen.dart';
-import 'package:investement_app/features/settings/screen/settingScreen.dart';
+import 'package:investement_app/features/Notifications/screens/notifications_screen.dart';
+import 'package:investement_app/features/profile/Screens/profile_screen.dart';
+import 'package:investement_app/features/settings/screen/setting_screen.dart';
 
 class MenuList extends StatelessWidget {
+  const MenuList({super.key});
+
   @override
   Widget build(BuildContext context) {
     final List<MenuItem> menuItems = [
@@ -12,22 +14,27 @@ class MenuList extends StatelessWidget {
           title: "Edit Profile",
           onTap: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Profilescreen()));
+                MaterialPageRoute(builder: (context) => const Profilescreen()));
           }),
       MenuItem(icon: Icons.account_balance, title: "Bank & Card", onTap: () {}),
       MenuItem(
           icon: Icons.notifications,
           title: "Notification",
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Notificationsscreen()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const Notificationsscreen()));
           }),
       MenuItem(
           icon: Icons.settings,
           title: "Settings",
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Settingscreen()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        const settingsScreen.settingsScreen()));
           }),
       MenuItem(icon: Icons.security, title: "Security", onTap: () {}),
       MenuItem(icon: Icons.assignment, title: "My Project", onTap: () {}),
@@ -49,7 +56,7 @@ class MenuList extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: menuItems.length,
-      separatorBuilder: (context, index) => Divider(
+      separatorBuilder: (context, index) => const Divider(
         color: Colors.black,
         thickness: 0.4,
       ),
@@ -63,7 +70,7 @@ class MenuList extends StatelessWidget {
             menuItems[index].title,
             style: TextStyle(fontSize: 18, color: menuItems[index].color),
           ),
-          trailing: Icon(
+          trailing: const Icon(
             Icons.arrow_forward_ios,
           ),
           onTap: menuItems[index].onTap,

@@ -6,11 +6,11 @@ class SquaredButton extends StatelessWidget {
   final VoidCallback? onTap;
 
   const SquaredButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.icon,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
