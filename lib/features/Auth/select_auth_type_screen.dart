@@ -23,16 +23,16 @@ class SelectAuthTypeScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 13, vertical: 30),
-                  child: Image.asset(Assets.images.startpage.path, height: 240),
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  child: Image.asset(Assets.images.startpage.path, height: 250),
                 ),
-                const SizedBox(height: 99),
+                const SizedBox(height: 30),
                 CustomButton(
                     text: 'Log in',
                     onPressed: () {
                       context.pushNamed(SelectCategoryScreen.id);
                     }),
-                const SizedBox(height: 37),
+                const SizedBox(height: 30),
                 CustomButton(
                     text: 'Sign up',
                     onPressed: () {
@@ -42,7 +42,7 @@ class SelectAuthTypeScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
             child: RichText(
               text: const TextSpan(
                 style: TextStyle(
