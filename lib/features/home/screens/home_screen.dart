@@ -8,6 +8,8 @@ import 'package:investement_app/features/home/widgets/profile_widget.dart';
 import 'package:investement_app/features/home/widgets/text_field.dart';
 import 'package:investement_app/features/profile/Screens/profile_screen.dart';
 import 'package:investement_app/gen/assets.gen.dart';
+import 'package:investement_app/features/home/models/category_model.dart';
+import 'package:investement_app/features/home/service/api_service.dart';
 
 class Homepage extends StatefulWidget {
   static const String id = "/home";
@@ -19,6 +21,15 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  late Future<CategoryResponse> futureCategories;
+  final ApiService apiService = ApiService();
+
+  @override
+  void initState() {
+    super.initState();
+    futureCategories = apiService.getCategories();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -81,91 +92,81 @@ class _HomepageState extends State<Homepage> {
           ],
         ),
       ),
-      body: ListView(
-        children: [
-          Container(
-            margin: EdgeInsets.symmetric(
-                horizontal: size.width * 0.03, vertical: size.height * 0.01),
-            child: const TextFieldWidget(
-                label: 'Search Any project', icon: Icons.search),
-          ),
-
-          SizedBox(height: size.height * 0.02),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: FutureBuilder<CategoryResponse>(
+        future: futureCategories,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else if (!snapshot.hasData || snapshot.data!.categories.isEmpty) {
+            return const Center(child: Text('No categories found'));
+          } else {
+            return ListView(
               children: [
-                const Text(
-                  'All Projects',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.03,
+                      vertical: size.height * 0.01),
+                  child: const TextFieldWidget(
+                      label: 'Search Any project', icon: Icons.search),
                 ),
-                TextButton(
-                  onPressed: () {
-                    _showSortOptions(context);
-                  },
-                  child: Container(
-                    height: size.height * 0.03,
-                    width: size.width * 0.14,
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          'Sort',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                SizedBox(height: size.height * 0.02),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'All Projects',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          _showSortOptions(context);
+                        },
+                        child: Container(
+                          height: size.height * 0.03,
+                          width: size.width * 0.14,
+                          decoration: BoxDecoration(
+                              border: Border.all(width: 2, color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                'Sort',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Icon(Icons.sort),
+                            ],
                           ),
                         ),
-                        Icon(Icons.sort),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
+                CardListView(cards: snapshot.data!.categories),
+                const CustomTextFormField(
+                    hintText: 'hintText',
+                    prefixIcon: Icon(Icons.search),
+                    label: 'label')
               ],
-            ),
-          ),
-          // SizedBox(height: size.height * 0.02),
-
-          CardListView(
-            cards: [
-              {
-                'image': Assets.images.logo.path,
-                'title': 'Crypto',
-                'subtitle': 'Bitcoin',
-              },
-              {
-                'image': Assets.images.onboarding1.path,
-                'title': 'onboarding1',
-                'subtitle': 'shawn',
-              },
-              {
-                'image': Assets.images.onboarding2.path,
-                'title': 'onboarding2',
-                'subtitle': 'cena',
-              },
-              {
-                'image': Assets.images.logo.path,
-                'title': 'Crypto',
-                'subtitle': 'Bitcoin',
-              },
-            ],
-          ),
-          const CustomTextFormField(
-              hintText: 'hintText',
-              prefixIcon: Icon(Icons.search),
-              label: 'label')
-        ],
+            );
+          }
+        },
       ),
     );
   }
 }
+
+// ... keep the existing _showSortOptions method ...
 
 void _showSortOptions(BuildContext context) {
   showModalBottomSheet(
