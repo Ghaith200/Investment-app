@@ -10,7 +10,7 @@ import 'package:investement_app/features/sign_up/screen/start_page.dart';
 
 abstract class AppRouter {
   static final GoRouter goRouter = GoRouter(
-    initialLocation: OnboardingScreen.id,
+    initialLocation: Homepage.id,
     routes: [
       GoRoute(
         path: LoginScreen.id,
