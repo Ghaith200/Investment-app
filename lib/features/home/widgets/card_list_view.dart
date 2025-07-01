@@ -21,6 +21,7 @@ class CardListView extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
+
             boxShadow: const [
               BoxShadow(
                 color: Colors.grey,
@@ -31,6 +32,7 @@ class CardListView extends StatelessWidget {
           ),
           child: Column(
             children: [
+
               business.businessPhoto != null
                   ? ClipRRect(
                       borderRadius:
@@ -81,6 +83,7 @@ class CardListView extends StatelessWidget {
                           onTap: () {
                             // تنفيذ الاستثمار هنا
                           },
+
                         ),
                       ],
                     ),
