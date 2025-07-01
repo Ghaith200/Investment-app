@@ -7,26 +7,44 @@ class ProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Stack(
+            alignment: Alignment.center,
             children: [
+              // Profile Image
               ClipRRect(
-                  borderRadius: BorderRadius.circular(150),
-                  child: Image.asset(
-                    Assets.images.newlogo.path,
-                    height: size.height * .2,
-                  )),
+                borderRadius: BorderRadius.circular(150),
+                child: Image.asset(
+                  Assets.images.newlogo.path,
+                  height: size.height * 0.2,
+                  width: size.height * 0.2,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              // Edit Icon Positioned
               Positioned(
+                bottom: 0,
                 right: 0,
-                bottom: 10,
-                child: IconButton(
-                  icon: const Icon(Icons.edit, color: Colors.blue, size: 35),
-                  onPressed: () {
-                    // Todo: Edit profile action
-                  },
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  padding: const EdgeInsets.all(5),
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.edit,
+                      color: Colors.blue,
+                      size: 28,
+                    ),
+                    onPressed: () {
+                      // TODO: Edit profile action
+                    },
+                  ),
                 ),
               ),
             ],

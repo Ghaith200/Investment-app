@@ -9,128 +9,150 @@ class CardListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: size.height,
-      child: ListView.builder(
-          itemCount: cards.length,
-          itemBuilder: (context, index) {
-            final category = cards[index];
-            return Column(children: [
-              Container(
-                margin: EdgeInsets.symmetric(
-                    horizontal: size.width * 0.05,
-                    vertical: size.height * 0.02),
-                height: 324,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 5,
-                      offset: Offset(0, 3),
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+    final height = size.height;
+
+    return ListView.builder(
+      itemCount: cards.length,
+      padding: EdgeInsets.only(bottom: height * 0.02),
+      itemBuilder: (context, index) {
+        final category = cards[index];
+
+        return Container(
+          margin: EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: height * 0.015,
+          ),
+          padding: EdgeInsets.only(bottom: height * 0.015),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(width * 0.03),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 5,
+                offset: Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(width * 0.03),
+                      topRight: Radius.circular(width * 0.03),
                     ),
-                  ],
-                ),
-                child: Column(children: [
-                  Stack(alignment: Alignment.topCenter, children: [
-                    SizedBox(
-                      height: size.height * 0.16,
-                      child: Image.asset(
-                        width: size.width,
-                        Assets.images.project1.path,
-                        fit: BoxFit.cover,
+                    child: Image.asset(
+                      Assets.images.project1.path,
+                      width: double.infinity,
+                      height: height * 0.22,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Positioned(
+                    top: height * 0.01,
+                    left: width * 0.02,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.share_outlined,
+                        color: const Color.fromARGB(255, 2, 0, 109),
+                        size: height * 0.03,
                       ),
                     ),
-                    SizedBox(
-                      height: size.height * 0.03,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.share_outlined,
-                              color: const Color.fromARGB(255, 2, 0, 109),
-                              size: size.height * 0.03,
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.bookmark_border_outlined,
-                              color: const Color.fromARGB(255, 2, 0, 109),
-                              size: size.height * 0.03,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ]),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: Column(children: [
-                      Text(
-                        category.name,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: size.height * 0.03),
-                      ),
-                      Text(category.description),
-                    ]),
                   ),
-                  const SizedBox(height: 8),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SizedBox(width: 10),
-                      SquaredButton(
-                        text: 'View Details',
-                        icon: Icons.info_outline,
+                  Positioned(
+                    top: height * 0.01,
+                    right: width * 0.02,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.bookmark_border_outlined,
+                        color: const Color.fromARGB(255, 2, 0, 109),
+                        size: height * 0.03,
                       ),
-                      SizedBox(width: 10),
-                      SquaredButton(
-                        text: 'Invest Now',
-                        icon: Icons.attach_money,
-                      ),
-                      SizedBox(width: 10),
-                    ],
+                    ),
                   ),
-                  SizedBox(height: size.height * 0.02),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          SizedBox(
-                            height: size.height * 0.04,
-                            child: ClipRRect(
+                ],
+              ),
+              SizedBox(height: height * 0.015),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: width * 0.04),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      category.name,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: height * 0.025,
+                      ),
+                    ),
+                    SizedBox(height: height * 0.005),
+                    Text(
+                      category.description,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: height * 0.018),
+                    ),
+                    SizedBox(height: height * 0.02),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: const [
+                        SquaredButton(
+                          text: 'View Details',
+                          icon: Icons.info_outline,
+                        ),
+                        SquaredButton(
+                          text: 'Invest Now',
+                          icon: Icons.attach_money,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: height * 0.02),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            SizedBox(
+                              height: height * 0.04,
+                              width: height * 0.04,
+                              child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
                                   Assets.images
                                       .a00756f144a0fb5daaf68dbfc01103a46.path,
                                   fit: BoxFit.cover,
-                                )),
-                          ),
-                          SizedBox(width: size.width * 0.01),
-                          Text(
-                            'Category ID: ${category.id}',
-                            style: TextStyle(color: Colors.blue.shade900),
-                          )
-                        ],
-                      ),
-                      SquaredButton(
-                        text: 'Created: ${category.createdAt.split('T')[0]}',
-                        icon: Icons.calendar_today,
-                      ),
-                    ],
-                  ),
-                ]),
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: width * 0.015),
+                            Text(
+                              'Category ID: ${category.id}',
+                              style: TextStyle(
+                                fontSize: height * 0.017,
+                                color: Colors.blue.shade900,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SquaredButton(
+                          text: 'Created: ${category.createdAt.split('T')[0]}',
+                          icon: Icons.calendar_today,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ]);
-          }),
+            ],
+          ),
+        );
+      },
     );
   }
 }
