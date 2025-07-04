@@ -6,6 +6,7 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final double? width;
   final double? height;
+  final Widget? child;
 
   const CustomButton({
     super.key,
@@ -13,6 +14,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.width,
     this.height,
+    this.child,
   });
 
   @override
@@ -22,8 +24,8 @@ class CustomButton extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            width: width ?? 365,
-            height: height ?? 72,
+            width: width ?? MediaQuery.sizeOf(context).width * 0.9,
+            height: height ?? 60,
             decoration: BoxDecoration(
               color: const Color(0xFF304FFE),
               borderRadius: BorderRadius.circular(28),
@@ -31,13 +33,14 @@ class CustomButton extends StatelessWidget {
             child: TextButton(
               onPressed: onPressed,
               child: Center(
-                child: Text(
-                  text,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w400),
-                ),
+                child: child ??
+                    Text(
+                      text,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w400),
+                    ),
               ),
             ),
           ),

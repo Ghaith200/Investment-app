@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:investement_app/features/Notifications/screens/notifications_screen.dart';
 import 'package:investement_app/features/profile/Screens/profile_screen.dart';
 import 'package:investement_app/features/settings/screen/setting_screen.dart';
@@ -14,7 +15,7 @@ class MenuList extends StatelessWidget {
           title: "Edit Profile",
           onTap: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Profilescreen()));
+                MaterialPageRoute(builder: (context) => const ProfileScreen()));
           }),
       MenuItem(icon: Icons.account_balance, title: "Bank & Card", onTap: () {}),
       MenuItem(
@@ -30,11 +31,7 @@ class MenuList extends StatelessWidget {
           icon: Icons.settings,
           title: "Settings",
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const settingsScreen.settingsScreen()));
+            context.pushNamed(SettingsScreen.id);
           }),
       MenuItem(icon: Icons.security, title: "Security", onTap: () {}),
       MenuItem(icon: Icons.assignment, title: "My Project", onTap: () {}),
@@ -44,13 +41,6 @@ class MenuList extends StatelessWidget {
           title: "My Investment",
           onTap: () {}),
       MenuItem(icon: Icons.bookmark, title: "Save For Later", onTap: () {}),
-      MenuItem(
-        icon: Icons.power_settings_new,
-        title: "Log Out",
-        onTap: () {},
-        color: Colors.red,
-        iconColor: Colors.red,
-      ),
     ];
     return ListView.separated(
       shrinkWrap: true,

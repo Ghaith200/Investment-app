@@ -15,7 +15,7 @@ class CustomTextFormField extends StatefulWidget {
   final String? obsecuringCharacter;
   final TextInputType? keyboardType;
   final CustomTextFieldType? type;
-  final TextEditingController? textEditingController;
+  final TextEditingController? controller;
   final int? maxLines;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -27,7 +27,8 @@ class CustomTextFormField extends StatefulWidget {
   final double? end;
   final double? start;
   final String? Function(String?)? validator;
-  final bool? isReadOnly;
+  final bool? readOnly; // ✅ NEW
+  final VoidCallback? onTap; // ✅ NEW
   final bool? customValidation;
   final TextStyle? inputTextStyle;
   final Color borderColor;
@@ -39,7 +40,7 @@ class CustomTextFormField extends StatefulWidget {
     this.icon,
     this.obscureText = false,
     this.obsecuringCharacter = "*",
-    this.textEditingController,
+    this.controller,
     this.keyboardType = TextInputType.text,
     this.type = CustomTextFieldType.text,
     this.maxLines = 1,
@@ -54,11 +55,13 @@ class CustomTextFormField extends StatefulWidget {
     this.end,
     this.start,
     this.validator,
-    this.isReadOnly,
+    this.readOnly, // ✅ NEW
     this.customValidation = false,
+    this.inputTextStyle,
     this.borderColor = AppColors.blue,
-    this.inputTextStyle, // Add the new parameter
+    this.onTap, // ✅ NEW
   });
+
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -68,6 +71,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   final FocusNode _focusNode = FocusNode();
   bool _hasValidationError = false;
   String? _errorMessage;
+
   @override
   void initState() {
     isObsecured = widget.obscureText ?? false;
@@ -91,21 +95,16 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         Container(
           padding: EdgeInsetsDirectional.only(
             top: widget.top ?? (AppScreenUtils.isTablet ? 8 : 4),
-            end: widget.end ?? 23,
+            end: widget.end ?? 10,
             bottom: widget.bottom ?? (AppScreenUtils.isTablet ? 8 : 4),
-            start: widget.start ?? 11,
+            start: widget.start ?? 10,
           ),
           child: TextFormField(
             cursorHeight: 22,
-            readOnly: widget.isReadOnly ?? false,
-            onTap: () {
-              setState(() {
-                _focusNode.requestFocus();
-              });
-            },
+            readOnly: widget.readOnly ?? false,
+            onTap: widget.onTap,
             focusNode: _focusNode,
             validator: (value) {
-              //handle custom validation by helmy(11/11/2024)
               if (widget.customValidation == true) {
                 return widget.validator?.call(value);
               } else if (value?.isEmpty ?? true) {
@@ -126,8 +125,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             obscureText: isObsecured,
             obscuringCharacter: "*",
             enableSuggestions: true,
-            controller: widget.textEditingController,
-            style: AppTextStyles.hevoLight20WhitekW100,
+            controller: widget.controller,
+            style: widget.inputTextStyle ??
+                TextStyle(
+                  color: AppColors.whiteBlack,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                ),
             cursorColor: AppColors.whiteBlack,
             keyboardType: widget.keyboardType,
             decoration: InputDecoration(
@@ -158,7 +162,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 child: widget.prefixIcon,
               ),
               hintStyle: widget.hintTextStyle ??
-                  AppTextStyles.hevoLight15WhiteBlackW500,
+                  const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(
@@ -176,17 +184,17 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: AppColors.grey,
+                borderSide: const BorderSide(
+                  color: AppColors.blue,
                   width: 1.5,
                 ),
               ),
               suffixIconConstraints: widget.suffixIconConstraints ??
-                  BoxConstraints(
-                    minWidth: AppScreenUtils.isTablet ? 20 : 20,
-                    minHeight: AppScreenUtils.isTablet ? 25 : 25,
-                    maxWidth: AppScreenUtils.isTablet ? 20 : 20,
-                    maxHeight: AppScreenUtils.isTablet ? 25 : 25,
+                  const BoxConstraints(
+                    minWidth: 20,
+                    minHeight: 25,
+                    maxWidth: 20,
+                    maxHeight: 25,
                   ),
               suffixIcon: checkAboutSuffixIcon(),
             ),
@@ -204,22 +212,18 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     );
   }
 
-  ///make check if the suffix icon is specified or no , if so then it will be returned and if not then make another check if the obsecure text is set to true and if so then it will provide a button to toggle the obsecure
   Widget? checkAboutSuffixIcon() {
     if (widget.suffixIcon != null) {
       return widget.suffixIcon;
     } else if (widget.obscureText == true) {
       return GestureDetector(
-        onTap: () {
-          togglePasswordVisibility();
-        },
+        onTap: togglePasswordVisibility,
         child: Padding(
-          padding: const EdgeInsets.only(
-              right: 20), // Add 20 spacing from the border
+          padding: const EdgeInsets.only(right: 20),
           child: Container(
-            width: 30, // Ensure the icon retains its size
+            width: 30,
             height: 30,
-            alignment: Alignment.center, // Center the icon
+            alignment: Alignment.center,
             child: isObsecured
                 ? Assets.images.icons.eyeDisabled
                     .svg(height: 20, width: 20, color: Colors.black)

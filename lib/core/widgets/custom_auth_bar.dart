@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -5,12 +6,16 @@ import 'package:go_router/go_router.dart';
 import 'package:heroicons/heroicons.dart';
 
 class CustomAuthBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAuthBar({super.key});
+  final bool isBackButton;
+  const CustomAuthBar({
+    super.key,
+    this.isBackButton = true,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 12),
+      padding: const EdgeInsets.only(top: 10, right: 12, left: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -19,7 +24,7 @@ class CustomAuthBar extends StatelessWidget implements PreferredSizeWidget {
               if (context.mounted) {
                 context.pop();
               } else {
-                log('ERROR : context isnt mounted ');
+                log('ERROR : context isnt mounted');
               }
             },
             child: const HeroIcon(
