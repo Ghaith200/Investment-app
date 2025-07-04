@@ -2,10 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:investement_app/core/utils/app_colors.dart';
-import 'package:investement_app/features/Auth/select_auth_type_screen.dart';
 import 'package:investement_app/features/onboarding_screen/widgets/onboarding_subtitle.dart';
 import 'package:investement_app/features/onboarding_screen/widgets/title.dart';
+import 'package:investement_app/features/Auth/landing_page.dart';
 import 'package:investement_app/gen/assets.gen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingScreen extends StatefulWidget {
   static const String id = "/onboarding";
@@ -45,7 +46,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         backgroundColor: AppColors.blue,
-        onPressed: () {
+        onPressed: () async {
           if (currentIndex < onboardingSlides.length - 1) {
             carouselController.animateToPage(
               currentIndex + 1,
@@ -53,7 +54,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               curve: Curves.easeInOut,
             );
           } else {
-            GoRouter.of(context).go(SelectAuthTypeScreen.id);
+            final prefs = await SharedPreferences.getInstance();
+            GoRouter.of(context).go(LandingPage.id);
+            prefs.setString('first', 'false');
           }
         },
         child: Padding(
