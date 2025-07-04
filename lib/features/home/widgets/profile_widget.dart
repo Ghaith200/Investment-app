@@ -19,7 +19,7 @@ class ProfileWidget extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(150),
                 child: Image.asset(
-                  Assets.images.newlogo.path,
+                  Assets.images.profilePhoto.path,
                   height: size.height * 0.2,
                   width: size.height * 0.2,
                   fit: BoxFit.cover,
@@ -30,11 +30,14 @@ class ProfileWidget extends StatelessWidget {
                 bottom: 0,
                 right: 0,
                 child: Container(
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Colors.blue.shade300,
+                      width: 2,
+                    ),
                   ),
-                  padding: const EdgeInsets.all(5),
                   child: IconButton(
                     icon: const Icon(
                       Icons.edit,

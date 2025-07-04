@@ -1,7 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:investement_app/features/home/models/buissnesses_model.dart';
 import 'package:investement_app/features/home/service/wishlist_services.dart';
+import 'package:investement_app/gen/assets.gen.dart';
+
 
 class BusinessDetailScreen extends StatefulWidget {
   final BusinessModel business;
@@ -69,10 +72,17 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Image.network(
-                      "http://10.0.2.2:8000/storage/${business.businessPhoto!}",
-                      width: double.infinity,
-                      height: 200,
+                    child: CachedNetworkImage(
+                      imageUrl:
+                          "http://10.0.2.2:8000/storage/${business.businessPhoto!}",
+                      placeholder: (context, url) => const Center(
+                        child: CircularProgressIndicator(
+                          color: Colors.blueAccent,
+                        ),
+                      ),
+                      errorWidget: (context, url, error) => Image.asset(
+                        Assets.images.project1.path,
+                      ),
                       fit: BoxFit.cover,
                     ),
                   ),

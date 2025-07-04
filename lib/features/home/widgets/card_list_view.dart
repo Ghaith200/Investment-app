@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:investement_app/features/home/models/buissnesses_model.dart';
 import 'package:investement_app/features/home/screens/buissness_deatil_screen.dart';
 import 'package:investement_app/features/home/widgets/squared_button.dart';
+import 'package:investement_app/gen/assets.gen.dart';
 
 class CardListView extends StatelessWidget {
   final List<BusinessModel> cards;
@@ -21,7 +23,6 @@ class CardListView extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
-
             boxShadow: const [
               BoxShadow(
                 color: Colors.grey,
@@ -32,18 +33,29 @@ class CardListView extends StatelessWidget {
           ),
           child: Column(
             children: [
-
               business.businessPhoto != null
                   ? ClipRRect(
                       borderRadius:
                           const BorderRadius.vertical(top: Radius.circular(10)),
-                      child: Image.network(
-                        "http://10.0.2.2:8000/storage/${business.businessPhoto!}",
-                        height: size.height * 0.2,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                    )
+                      child: CachedNetworkImage(
+                        imageUrl:
+                            "http://10.0.2.2:8000/storage/${business.businessPhoto!}",
+                        placeholder: (context, url) => Container(
+                          height: size.height * 0.2,
+                          color: Colors.grey.shade200,
+                          child:
+                              const Center(child: CircularProgressIndicator()),
+                        ),
+                        errorWidget: (context, url, error) => Container(
+                          height: size.height * 0.2,
+                          color: Colors.grey.shade200,
+                          child: Center(
+                              child: Image.asset(
+                            Assets.images.project1.path,
+                            fit: BoxFit.cover,
+                          )),
+                        ),
+                      ))
                   : Container(
                       height: size.height * 0.2,
                       color: Colors.grey.shade200,
@@ -83,7 +95,6 @@ class CardListView extends StatelessWidget {
                           onTap: () {
                             // تنفيذ الاستثمار هنا
                           },
-
                         ),
                       ],
                     ),

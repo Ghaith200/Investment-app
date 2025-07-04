@@ -88,7 +88,7 @@ class _HomepageState extends State<Homepage> {
               InkWell(
                 onTap: () {
                   Navigator.push(ctx,
-                      MaterialPageRoute(builder: (_) => const Profilescreen()));
+                      MaterialPageRoute(builder: (_) => const ProfileScreen()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(right: size.width * 0.02),
@@ -154,6 +154,7 @@ class _HomepageState extends State<Homepage> {
                         SizedBox(
                           width: 120,
                           child: DropdownButtonFormField<CategoryModel?>(
+                            isExpanded: true, // ✅ Important to prevent overflow
                             decoration: InputDecoration(
                               labelText: '',
                               contentPadding:
@@ -165,8 +166,10 @@ class _HomepageState extends State<Homepage> {
                             items: [
                               const DropdownMenuItem<CategoryModel?>(
                                 value: null,
-                                child: Text("All",
-                                    overflow: TextOverflow.ellipsis),
+                                child: Text(
+                                  "All",
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                               ...allCats.map(
                                 (cat) => DropdownMenuItem<CategoryModel?>(
