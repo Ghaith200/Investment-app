@@ -2,14 +2,37 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:investement_app/features/home/models/buissnesses_model.dart';
+import 'package:investement_app/features/home/service/wishlist_services.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
-class BusinessDetailScreen extends StatelessWidget {
+
+class BusinessDetailScreen extends StatefulWidget {
   final BusinessModel business;
   const BusinessDetailScreen({super.key, required this.business});
 
   @override
+  State<BusinessDetailScreen> createState() => _BusinessDetailScreenState();
+}
+
+class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
+  bool isWishlisted = false;
+
+  Future<void> handleWishlist() async {
+    final success = await WishlistService.addToWishlist(widget.business.id!);
+    if (success) {
+      setState(() {
+        isWishlisted = true;
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Failed to add to wishlist")),
+      );
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final business = widget.business;
     final createdAtFormatted = DateFormat('MMMM d, y')
         .format(DateTime.parse(business.category.createdAt));
 
@@ -31,8 +54,11 @@ class BusinessDetailScreen extends StatelessWidget {
               const Text("FAQ", style: TextStyle(color: Colors.grey)),
               const Spacer(),
               IconButton(
-                icon: const Icon(Icons.favorite_border, color: Colors.red),
-                onPressed: () {},
+                icon: Icon(
+                  isWishlisted ? Icons.favorite : Icons.favorite_border,
+                  color: Colors.red,
+                ),
+                onPressed: handleWishlist,
               ),
             ],
           ),
