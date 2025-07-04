@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:firebase_core/firebase_core.dart'; // Firebase
 import 'package:investement_app/core/routes/app_router.dart';
 import 'package:investement_app/core/utils/app_colors.dart';
 import 'package:investement_app/core/utils/app_utils.dart';
