@@ -8,6 +8,7 @@ import 'package:investement_app/core/widgets/custom_auth_bar.dart';
 import 'package:investement_app/core/widgets/custom_textfield.dart';
 import 'package:investement_app/features/Auth/sign_in/data/login_cubit.dart';
 import 'package:investement_app/features/Auth/sign_in/data/login_state.dart';
+import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
 import 'package:investement_app/features/home/screens/home_screen.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 import 'package:investement_app/core/widgets/custom_button.dart';
@@ -35,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginSuccess) {
-            context.pushNamed(Homepage.id);
+            context.pushNamed(BottomNavBar.id);
           } else if (state is LoginError) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),

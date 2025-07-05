@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:investement_app/features/Auth/sign_in/presentation/login_screen.dart';
 import 'package:investement_app/features/Notifications/screens/notifications_screen.dart';
+import 'package:investement_app/features/my_investments/data/get_offers_cubit.dart';
+import 'package:investement_app/features/my_investments/my_investments.dart';
 import 'package:investement_app/features/profile/Screens/profile_screen.dart';
 import 'package:investement_app/features/projects/screens/create_project.dart';
 import 'package:investement_app/features/settings/screen/setting_screen.dart';
@@ -46,20 +49,19 @@ class MenuList extends StatelessWidget {
           }),
       MenuItem(
           icon: Icons.account_balance_wallet,
-          title: "My Investment",
-          onTap: () {}),
-      MenuItem(
-          icon: Icons.bookmark,
-          title: "Save For Later",
+
+          title: "My Investments",
           onTap: () {
-            context.pushNamed(WishlistPage.id);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => BlocProvider(
+                          create: (context) => OffersCubit(),
+                          child: const MyInvestments(),
+                        )));
           }),
-      MenuItem(
-          icon: Icons.login,
-          title: "Login",
-          onTap: () {
-            context.pushNamed(LoginScreen.id);
-          }),
+      MenuItem(icon: Icons.bookmark, title: "Save For Later", onTap: () {}),
+
     ];
     return ListView.separated(
       shrinkWrap: true,

@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                           child: ClipOval(
                             child: CachedNetworkImage(
                               imageUrl:
-                                  'http://10.0.2.2:8000/profiles/${user.profileImage}',
+                                  'http://10.0.2.2:8000/storage/${user.profileImage}',
                               width: 110,
                               height: 110,
                               fit: BoxFit.cover,

@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:investement_app/features/home/data/offer_cubit.dart';
 import 'package:investement_app/features/home/models/buissnesses_model.dart';
 import 'package:investement_app/features/home/screens/buissness_deatil_screen.dart';
 import 'package:investement_app/features/home/widgets/squared_button.dart';
@@ -83,8 +85,11 @@ class CardListView extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (_) =>
-                                    BusinessDetailScreen(business: business),
+                                builder: (_) => BlocProvider(
+                                  create: (context) => OfferCubit(),
+                                  child:
+                                      BusinessDetailScreen(business: business),
+                                ),
                               ),
                             );
                           },

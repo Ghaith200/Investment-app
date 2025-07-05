@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:investement_app/core/models/user_model.dart';
 import 'package:investement_app/features/home/models/buissnesses_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/category_model.dart';
 
 class ApiService {
@@ -33,6 +35,25 @@ class ApiService {
       return data.map((e) => BusinessModel.fromJson(e)).toList();
     } else {
       throw Exception('Failed to load businesses');
+    }
+  }
+
+  Future<UserModel> getCurrentUser() async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token') ?? '';
+    final response = await http.get(
+      Uri.parse('$baseUrl/user'),
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      final jsonResponse = jsonDecode(response.body);
+      return UserModel.fromJson(jsonResponse);
+    } else {
+      throw Exception('Failed to load user profile');
     }
   }
 }

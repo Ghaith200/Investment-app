@@ -41,7 +41,8 @@ class ProfileCubit extends Cubit<ProfileState> {
         emit(ProfileFailure("Failed to load profile"));
       }
     } catch (e) {
-      emit(ProfileFailure(e.toString()));
+      emit(ProfileFailure('Failed to load profile: $e'));
+      
     }
   }
 }
