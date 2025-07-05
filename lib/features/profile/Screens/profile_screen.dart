@@ -1,10 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:investement_app/features/home/screens/buissness_deatil_screen.dart';
+import 'package:investement_app/features/myBuisness/screens/my_buissness.dart';
 import 'package:investement_app/features/profile/data/profile_cubit.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
 class ProfileScreen extends StatelessWidget {
+  static const id = '/profile';
   const ProfileScreen({super.key});
 
   @override
@@ -45,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
                           child: ClipOval(
                             child: CachedNetworkImage(
                               imageUrl:
-                                  'http://10.0.2.2:8000/profiles/${user.profileImage}',
+                                  'http://10.0.2.2:8000/storage/${user.profileImage}',
                               width: 110,
                               height: 110,
                               fit: BoxFit.cover,
@@ -120,6 +123,34 @@ class ProfileScreen extends StatelessWidget {
                   //     ),
                   //   ),
                   // ),
+                  const SizedBox(height: 30),
+                  const SizedBox(height: 30),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => MyBusinessesScreen()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: const Text(
+                        'My Investments',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 30),
                 ],
               );

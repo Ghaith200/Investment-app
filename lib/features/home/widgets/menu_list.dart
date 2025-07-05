@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:investement_app/features/Auth/sign_in/presentation/login_screen.dart';
 import 'package:investement_app/features/Notifications/screens/notifications_screen.dart';
+import 'package:investement_app/features/myBuisness/screens/my_buissness.dart';
 import 'package:investement_app/features/profile/Screens/profile_screen.dart';
 import 'package:investement_app/features/projects/screens/create_project.dart';
 import 'package:investement_app/features/settings/screen/setting_screen.dart';
@@ -37,7 +38,12 @@ class MenuList extends StatelessWidget {
             context.pushNamed(SettingsScreen.id);
           }),
       MenuItem(icon: Icons.security, title: "Security", onTap: () {}),
-      MenuItem(icon: Icons.assignment, title: "My Project", onTap: () {}),
+      MenuItem(
+          icon: Icons.assignment,
+          title: "My Project",
+          onTap: () {
+            context.pushNamed(MyBusinessesScreen.id);
+          }),
       MenuItem(
           icon: Icons.edit,
           title: "Add New Project",
@@ -46,7 +52,7 @@ class MenuList extends StatelessWidget {
           }),
       MenuItem(
           icon: Icons.account_balance_wallet,
-          title: "My Investment",
+          title: "My investments",
           onTap: () {}),
       MenuItem(
           icon: Icons.bookmark,

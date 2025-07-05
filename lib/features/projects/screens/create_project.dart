@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:investement_app/features/home/models/buissnesses_model.dart';
 import 'package:investement_app/features/home/models/category_model.dart';
+import 'package:investement_app/features/projects/service/categorey_service.dart';
 import 'package:investement_app/features/projects/service/create_project_service.dart';
 
 class BusinessFormPage extends StatefulWidget {
@@ -34,9 +35,10 @@ class _BusinessFormPageState extends State<BusinessFormPage>
   final TextEditingController _competitiveAdvantagesController =
       TextEditingController();
 
-  String _categoryId = '';
   String _businessPhotoPath = '';
   bool _isLoading = false;
+  List<CategoryModel> _categories = [];
+  CategoryModel? _selectedCategory;
 
   @override
   void initState() {
@@ -61,6 +63,18 @@ class _BusinessFormPageState extends State<BusinessFormPage>
     );
 
     _controller.forward();
+    _loadCategories();
+  }
+
+  Future<void> _loadCategories() async {
+    try {
+      final data = await CategoryService.getCategories();
+      setState(() {
+        _categories = data;
+      });
+    } catch (e) {
+      print('Failed to load categories: $e');
+    }
   }
 
   @override
@@ -101,7 +115,7 @@ class _BusinessFormPageState extends State<BusinessFormPage>
     final business = BusinessModel(
       id: null,
       userId: null,
-      categoryId: int.tryParse(_categoryId),
+      categoryId: _selectedCategory?.id,
       businessName: _businessNameController.text,
       description: _descriptionController.text,
       businessPhoto: _businessPhotoPath.isNotEmpty ? _businessPhotoPath : null,
@@ -240,6 +254,29 @@ class _BusinessFormPageState extends State<BusinessFormPage>
                           }
                           return null;
                         },
+                      ),
+                      SizedBox(height: 15),
+
+                      // categorey dropdown
+                      DropdownButtonFormField<CategoryModel>(
+                        decoration: InputDecoration(
+                          labelText: 'Category',
+                          border: OutlineInputBorder(),
+                        ),
+                        value: _selectedCategory,
+                        items: _categories.map((category) {
+                          return DropdownMenuItem<CategoryModel>(
+                            value: category,
+                            child: Text(category.name),
+                          );
+                        }).toList(),
+                        onChanged: (CategoryModel? value) {
+                          setState(() {
+                            _selectedCategory = value;
+                          });
+                        },
+                        validator: (value) =>
+                            value == null ? 'Please select a category' : null,
                       ),
                       SizedBox(height: 15),
 

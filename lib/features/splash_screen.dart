@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:investement_app/features/Auth/landing_page.dart';
+import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
 import 'package:investement_app/features/home/screens/home_screen.dart';
 import 'package:investement_app/features/onboarding_screen/screens/onboarding_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
