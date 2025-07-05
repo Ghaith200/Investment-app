@@ -5,7 +5,6 @@ import 'package:investement_app/features/home/models/buissnesses_model.dart';
 import 'package:investement_app/features/home/service/wishlist_services.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
-
 class BusinessDetailScreen extends StatefulWidget {
   final BusinessModel business;
   const BusinessDetailScreen({super.key, required this.business});
@@ -55,8 +54,8 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
               const Spacer(),
               IconButton(
                 icon: Icon(
-                  isWishlisted ? Icons.favorite : Icons.favorite_border,
-                  color: Colors.red,
+                  isWishlisted ? Icons.bookmark : Icons.bookmark_add_outlined,
+                  color: Colors.blue,
                 ),
                 onPressed: handleWishlist,
               ),
