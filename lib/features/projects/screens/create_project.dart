@@ -114,6 +114,7 @@ class _BusinessFormPageState extends State<BusinessFormPage>
 
     final business = BusinessModel(
       id: null,
+      user: null, 
       userId: null,
       categoryId: _selectedCategory?.id,
       businessName: _businessNameController.text,

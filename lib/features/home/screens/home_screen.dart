@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:investement_app/features/home/models/buissnesses_model.dart';
 import 'package:investement_app/features/home/models/category_model.dart';
+import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
 import 'package:investement_app/features/home/service/api_service.dart';
 import 'package:investement_app/features/home/widgets/card_list_view.dart';
 import 'package:investement_app/features/home/widgets/darwer_list_tile.dart';
