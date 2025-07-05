@@ -32,9 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       context.go(OnboardingScreen.id);
     } else {
       if (token != null && token.isNotEmpty) {
-
-        context.go(BottomNavBar.id); // ✅ Go to HomePagef
-
+        context.go(BottomNavBar.id, extra: 2); // ✅ Go to HomePagef
       } else {
         context.go(LandingPage.id); // ⬅️ Go to LandingPage
       }

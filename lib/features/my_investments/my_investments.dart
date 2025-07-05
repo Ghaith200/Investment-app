@@ -64,7 +64,7 @@ class _MyInvestmentsState extends State<MyInvestments> {
               onPressed: () {
                 // Navigate to businesses screen
                 Navigator.pop(context);
-                BottomNavBar.switchToTab(context, 0); // Switch to home tab
+                BottomNavBar.switchToTab(context, 2); // Switch to home tab
               },
               width: 200,
             ),

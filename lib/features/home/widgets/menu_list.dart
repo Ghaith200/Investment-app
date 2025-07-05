@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:investement_app/features/Auth/sign_in/presentation/login_screen.dart';
 import 'package:investement_app/features/Notifications/screens/notifications_screen.dart';
 import 'package:investement_app/features/myBuisness/screens/my_buissness.dart';
 import 'package:investement_app/features/my_investments/data/get_offers_cubit.dart';
@@ -43,7 +42,7 @@ class MenuList extends StatelessWidget {
       MenuItem(icon: Icons.security, title: "Security", onTap: () {}),
       MenuItem(
           icon: Icons.assignment,
-          title: "My Project",
+          title: "My Projects",
           onTap: () {
             context.pushNamed(MyBusinessesScreen.id);
           }),
@@ -53,10 +52,6 @@ class MenuList extends StatelessWidget {
           onTap: () {
             context.pushNamed(BusinessFormPage.id);
           }),
-      MenuItem(
-          icon: Icons.account_balance_wallet,
-          title: "My investments",
-          onTap: () {}),
       MenuItem(
           icon: Icons.bookmark,
           title: "Save For Later",
@@ -75,8 +70,6 @@ class MenuList extends StatelessWidget {
                           child: const MyInvestments(),
                         )));
           }),
-      MenuItem(icon: Icons.bookmark, title: "Save For Later", onTap: () {}),
-
     ];
     return ListView.separated(
       shrinkWrap: true,

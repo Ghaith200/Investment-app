@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class BusinessService {
   static const String baseUrl =
-      "http://10.0.2.2:8000/api"; // emulator localhost
+      "http://10.0.2.2:8000/api"; 
 
   static Future<List<BusinessModel>> getMyBusinesses() async {
     try {
