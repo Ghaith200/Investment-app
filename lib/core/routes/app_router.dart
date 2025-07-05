@@ -1,10 +1,10 @@
 import 'dart:io';
-
 import 'package:go_router/go_router.dart';
 import 'package:investement_app/features/Auth/select_category_screen.dart';
 import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
 import 'package:investement_app/features/home/screens/home_screen.dart';
 import 'package:investement_app/features/Auth/sign_in/presentation/login_screen.dart';
+import 'package:investement_app/features/myBuisness/screens/my_buissness.dart';
 import 'package:investement_app/features/my_investments/my_investments.dart';
 import 'package:investement_app/features/onboarding_screen/screens/onboarding_screen.dart';
 import 'package:investement_app/features/Auth/sign_up/presentation/secound_sign_up_.dart';
@@ -103,6 +103,12 @@ abstract class AppRouter {
           builder: (context, state) {
             return WishlistPage();
 
+          }),
+      GoRoute(
+          path: MyBusinessesScreen.id,
+          name: MyBusinessesScreen.id,
+          builder: (context, state) {
+            return MyBusinessesScreen();
           }),
     ],
   );

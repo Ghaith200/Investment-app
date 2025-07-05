@@ -9,6 +9,8 @@ import 'package:investement_app/features/home/widgets/menu_list.dart';
 import 'package:investement_app/features/home/widgets/profile_widget.dart';
 import 'package:investement_app/features/home/widgets/text_field.dart';
 import 'package:investement_app/features/profile/Screens/profile_screen.dart';
+import 'package:investement_app/features/profile/models/profile_model.dart';
+import 'package:investement_app/features/profile/service/profile_service.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
 class Homepage extends StatefulWidget {
@@ -29,12 +31,21 @@ class _HomepageState extends State<Homepage> {
 
   bool loadingBiz = false;
   String searchText = "";
+  ProfileModel? userProfile;
 
   @override
   void initState() {
     super.initState();
     futureCats = api.getCategories();
-    fetchBusinesses(); // load all at start
+    fetchBusinesses();
+    loadProfile();
+  }
+
+  Future<void> loadProfile() async {
+    final profile = await ProfileService.getProfile();
+    if (mounted) {
+      setState(() => userProfile = profile);
+    }
   }
 
   Future<void> fetchBusinesses({int? catId, String? query}) async {
@@ -98,10 +109,19 @@ class _HomepageState extends State<Homepage> {
                       borderRadius: BorderRadius.circular(150)),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(150),
-                    child: Image.asset(
-                      Assets.images.profilePhoto.path,
+                    child: Image.network(
+                      "http://10.0.2.2:8000/storage/${userProfile?.profileImage ?? ''}",
                       height: size.height * 0.05,
                       width: size.width * 0.1,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Image.asset(
+                          Assets.images.profilePhoto.path,
+                          height: size.height * 0.05,
+                          width: size.width * 0.1,
+                          fit: BoxFit.cover,
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -123,7 +143,7 @@ class _HomepageState extends State<Homepage> {
                   traillerIcon: const Icon(Icons.arrow_forward_ios_rounded),
                 ),
                 const SizedBox(height: 20),
-                const ProfileWidget(),
+                ProfileWidget(profileImage: userProfile?.profileImage),
                 const MenuList(),
               ],
             ),
@@ -155,7 +175,7 @@ class _HomepageState extends State<Homepage> {
                         SizedBox(
                           width: 120,
                           child: DropdownButtonFormField<CategoryModel?>(
-                            isExpanded: true, // ✅ Important to prevent overflow
+                            isExpanded: true,
                             decoration: InputDecoration(
                               labelText: '',
                               contentPadding:

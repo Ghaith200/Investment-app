@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 
 class ProfileWidget extends StatelessWidget {
-  const ProfileWidget({super.key});
+  final String? profileImage;
+
+  const ProfileWidget({super.key, this.profileImage});
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +17,30 @@ class ProfileWidget extends StatelessWidget {
           Stack(
             alignment: Alignment.center,
             children: [
-              // Profile Image
+              // ✅ Use Image.network if profileImage exists, otherwise fallback
               ClipRRect(
                 borderRadius: BorderRadius.circular(150),
-                child: Image.asset(
-                  Assets.images.profilePhoto.path,
-                  height: size.height * 0.2,
-                  width: size.height * 0.2,
-                  fit: BoxFit.cover,
-                ),
+                child: profileImage != null
+                    ? Image.network(
+                        'http://10.0.2.2:8000/storage/$profileImage',
+                        height: size.height * 0.2,
+                        width: size.height * 0.2,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Image.asset(
+                            Assets.images.profilePhoto.path,
+                            height: size.height * 0.2,
+                            width: size.height * 0.2,
+                            fit: BoxFit.cover,
+                          );
+                        },
+                      )
+                    : Image.asset(
+                        Assets.images.profilePhoto.path,
+                        height: size.height * 0.2,
+                        width: size.height * 0.2,
+                        fit: BoxFit.cover,
+                      ),
               ),
               // Edit Icon Positioned
               Positioned(

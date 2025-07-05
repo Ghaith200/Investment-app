@@ -2,15 +2,25 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:investement_app/features/home/models/buissnesses_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://localhost:8000/api';
+  static const String baseUrl = 'http://10.0.2.2:8000/api';
 
   // Post business data to the server
   static Future<BusinessModel> createBusiness(BusinessModel business) async {
     try {
       final uri = Uri.parse('$baseUrl/businesses');
       var request = http.MultipartRequest('POST', uri);
+
+      // ✅ Get token
+      final prefs = await SharedPreferences.getInstance();
+      final token = prefs.getString('token');
+
+      if (token == null) throw Exception('Token not found');
+
+      request.headers['Authorization'] = 'Bearer $token';
+      request.headers['Accept'] = 'application/json';
 
       // Add fields
       request.fields['category_id'] = business.categoryId?.toString() ?? '';
@@ -27,7 +37,6 @@ class ApiService {
       request.fields['target_market'] = business.targetMarket;
       request.fields['competitive_advantages'] = business.competitiveAdvantages;
 
-      // Add file if exists
       if (business.businessPhoto != null &&
           business.businessPhoto!.isNotEmpty) {
         var file = await http.MultipartFile.fromPath(
