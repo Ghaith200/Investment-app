@@ -1,3 +1,5 @@
+import 'package:investement_app/core/models/user_model.dart';
+
 import 'category_model.dart';
 
 class BusinessModel {
@@ -18,6 +20,7 @@ class BusinessModel {
   final String competitiveAdvantages;
   final bool isActive;
   final CategoryModel category;
+  final UserModel? user;
 
   BusinessModel({
     this.id,
@@ -36,6 +39,7 @@ class BusinessModel {
     required this.targetMarket,
     required this.competitiveAdvantages,
     required this.isActive,
+    this.user,
     required this.category,
   });
 
@@ -67,6 +71,20 @@ class BusinessModel {
               createdAt: '',
               updatedAt: '',
               businessesCount: 0,
+            ),
+      user: json['user'] != null
+          ? UserModel.fromJson(json['user'])
+          : UserModel(
+              // Fallback for null user
+              id: 0,
+              country: 'Unkown',
+              birthDate: '',
+              bio: '',
+              type: '',
+              title: '',
+
+              name: 'Unknown Owner',
+              email: '',
             ),
     );
   }

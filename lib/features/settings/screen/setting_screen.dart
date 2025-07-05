@@ -41,11 +41,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: const Text(
                 "Settings",
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Colors.black,
                   fontSize: 27,
                   fontWeight: FontWeight.w400,
                 ),
               ),
+              centerTitle: true,
             ),
             body: Container(
               color: Colors.grey.shade200,
