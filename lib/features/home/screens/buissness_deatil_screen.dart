@@ -261,6 +261,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen>
     final createdAtFormatted = DateFormat('MMMM d, y')
         .format(DateTime.parse(business.category.createdAt));
 
+
     // Get user information
     final user = business.user;
     final userName = user!.name;
@@ -285,6 +286,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen>
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Icon(Icons.arrow_back, color: Colors.blue),
+
                 ),
                 onPressed: () => Navigator.pop(context),
               ),

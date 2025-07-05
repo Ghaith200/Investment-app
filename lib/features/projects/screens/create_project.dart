@@ -6,6 +6,7 @@ import 'package:investement_app/features/home/models/category_model.dart';
 import 'package:investement_app/features/projects/service/create_project_service.dart';
 
 class BusinessFormPage extends StatefulWidget {
+  static const id = '/buisnessForm';
   @override
   _BusinessFormPageState createState() => _BusinessFormPageState();
 }

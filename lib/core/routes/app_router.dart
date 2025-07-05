@@ -10,8 +10,10 @@ import 'package:investement_app/features/onboarding_screen/screens/onboarding_sc
 import 'package:investement_app/features/Auth/sign_up/presentation/secound_sign_up_.dart';
 import 'package:investement_app/features/Auth/sign_up/presentation/sign_up.dart';
 import 'package:investement_app/features/Auth/landing_page.dart';
+import 'package:investement_app/features/projects/screens/create_project.dart';
 import 'package:investement_app/features/settings/screen/setting_screen.dart';
 import 'package:investement_app/features/splash_screen.dart';
+import 'package:investement_app/features/wishlist/screens/wishlist_screen.dart';
 
 abstract class AppRouter {
   static final GoRouter goRouter = GoRouter(
@@ -84,10 +86,23 @@ abstract class AppRouter {
             return const SettingsScreen();
           }),
       GoRoute(
+
           path: MyInvestments.id,
           name: MyInvestments.id,
           builder: (context, state) {
             return const MyInvestments();
+
+          path: BusinessFormPage.id,
+          name: BusinessFormPage.id,
+          builder: (context, state) {
+            return BusinessFormPage();
+          }),
+      GoRoute(
+          path: WishlistPage.id,
+          name: WishlistPage.id,
+          builder: (context, state) {
+            return WishlistPage();
+
           }),
     ],
   );
