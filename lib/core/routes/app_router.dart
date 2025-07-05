@@ -86,12 +86,12 @@ abstract class AppRouter {
             return const SettingsScreen();
           }),
       GoRoute(
-
           path: MyInvestments.id,
           name: MyInvestments.id,
           builder: (context, state) {
             return const MyInvestments();
-
+          }),
+      GoRoute(
           path: BusinessFormPage.id,
           name: BusinessFormPage.id,
           builder: (context, state) {
@@ -102,7 +102,6 @@ abstract class AppRouter {
           name: WishlistPage.id,
           builder: (context, state) {
             return WishlistPage();
-
           }),
       GoRoute(
           path: MyBusinessesScreen.id,

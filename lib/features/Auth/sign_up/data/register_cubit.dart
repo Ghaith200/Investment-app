@@ -21,7 +21,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        emit(RegisterSuccess());
+        emit(RegisterSuccess(response.data['token']));
       } else {
         final error = response.data['message'] ?? 'Failed to register';
         emit(RegisterFailure(error.toString()));

@@ -15,6 +15,7 @@ import 'package:investement_app/features/Auth/sign_up/data/register_state.dart';
 import 'package:investement_app/features/Auth/sign_up/models/register_model.dart';
 import 'package:investement_app/features/home/screens/home_screen.dart';
 import 'package:investement_app/gen/assets.gen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SecoundSignUpPage extends StatefulWidget {
   static const id = '/secoundsignup';
@@ -82,6 +83,11 @@ class _SecoundSignUpPageState extends State<SecoundSignUpPage> {
       child: BlocConsumer<RegisterCubit, RegisterState>(
         listener: (context, state) {
           if (state is RegisterSuccess) {
+            final prefs = SharedPreferences.getInstance();
+            prefs.then((sharedPrefs) {
+              sharedPrefs.setString('token', state.token);
+              sharedPrefs.setString('userId', state.token);
+            });
             context.pushNamed(Homepage.id);
           } else if (state is RegisterFailure) {
             showDialog(
