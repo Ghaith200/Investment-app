@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:investement_app/features/Auth/sign_in/presentation/login_screen.dart';
 import 'package:investement_app/features/Notifications/screens/notifications_screen.dart';
 import 'package:investement_app/features/profile/Screens/profile_screen.dart';
+import 'package:investement_app/features/projects/screens/create_project.dart';
 import 'package:investement_app/features/settings/screen/setting_screen.dart';
+import 'package:investement_app/features/wishlist/screens/wishlist_screen.dart';
 
 class MenuList extends StatelessWidget {
   const MenuList({super.key});
@@ -35,12 +38,28 @@ class MenuList extends StatelessWidget {
           }),
       MenuItem(icon: Icons.security, title: "Security", onTap: () {}),
       MenuItem(icon: Icons.assignment, title: "My Project", onTap: () {}),
-      MenuItem(icon: Icons.edit, title: "Add New Project", onTap: () {}),
+      MenuItem(
+          icon: Icons.edit,
+          title: "Add New Project",
+          onTap: () {
+            context.pushNamed(BusinessFormPage.id);
+          }),
       MenuItem(
           icon: Icons.account_balance_wallet,
           title: "My Investment",
           onTap: () {}),
-      MenuItem(icon: Icons.bookmark, title: "Save For Later", onTap: () {}),
+      MenuItem(
+          icon: Icons.bookmark,
+          title: "Save For Later",
+          onTap: () {
+            context.pushNamed(WishlistPage.id);
+          }),
+      MenuItem(
+          icon: Icons.login,
+          title: "Login",
+          onTap: () {
+            context.pushNamed(LoginScreen.id);
+          }),
     ];
     return ListView.separated(
       shrinkWrap: true,
