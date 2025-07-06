@@ -13,6 +13,7 @@ import 'package:investement_app/core/widgets/custom_textfield.dart';
 import 'package:investement_app/features/Auth/sign_up/data/register_cubit.dart';
 import 'package:investement_app/features/Auth/sign_up/data/register_state.dart';
 import 'package:investement_app/features/Auth/sign_up/models/register_model.dart';
+import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
 import 'package:investement_app/features/home/screens/home_screen.dart';
 import 'package:investement_app/gen/assets.gen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -88,7 +89,7 @@ class _SecoundSignUpPageState extends State<SecoundSignUpPage> {
               sharedPrefs.setString('token', state.token);
               sharedPrefs.setString('userId', state.token);
             });
-            context.pushNamed(Homepage.id);
+            context.pushNamed(BottomNavBar.id, extra: 2);
           } else if (state is RegisterFailure) {
             showDialog(
               context: context,
