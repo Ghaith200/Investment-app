@@ -261,7 +261,6 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen>
     final createdAtFormatted = DateFormat('MMMM d, y')
         .format(DateTime.parse(business.category.createdAt));
 
-
     // Get user information
     final user = business.user;
     final userName = user!.name;
@@ -286,7 +285,6 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen>
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Icon(Icons.arrow_back, color: Colors.blue),
-
                 ),
                 onPressed: () => Navigator.pop(context),
               ),
@@ -307,24 +305,21 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen>
                 ),
               ],
               flexibleSpace: FlexibleSpaceBar(
-                background: business.businessPhoto != null
-                    ? CachedNetworkImage(
-                        imageUrl:
-                            "http://10.0.2.2:8000/storage/${business.businessPhoto!}",
-                        placeholder: (context, url) => Container(
-                          color: Colors.grey[200],
-                          child: const Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.blueAccent,
-                            ),
-                          ),
-                        ),
-                        errorWidget: (context, url, error) =>
-                            Image.asset(Assets.images.project1.path),
-                        fit: BoxFit.cover,
-                      )
-                    : null,
-              ),
+                  background: CachedNetworkImage(
+                imageUrl:
+                    "http://10.0.2.2:8000/storage/${business.businessPhoto}",
+                placeholder: (context, url) => Container(
+                  color: Colors.grey[200],
+                  child: const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                ),
+                errorWidget: (context, url, error) =>
+                    Image.asset(Assets.images.project1.path),
+                fit: BoxFit.cover,
+              )),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(48),
                 child: Container(
