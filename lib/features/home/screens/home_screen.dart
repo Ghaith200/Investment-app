@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:investement_app/features/home/models/buissnesses_model.dart';
 import 'package:investement_app/features/home/models/category_model.dart';
 import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
@@ -135,8 +136,10 @@ class _HomepageState extends State<Homepage> {
               children: [
                 const SizedBox(height: 20),
                 DrawerListtile(
-                  onTap: () {},
-                  title: const Text('My Profile',
+                  onTap: () {
+                    context.pop();
+                  },
+                  title: const Text('Menu',
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
                   icon: const Icon(Icons.close),
@@ -144,7 +147,9 @@ class _HomepageState extends State<Homepage> {
                 ),
                 const SizedBox(height: 20),
                 ProfileWidget(profileImage: userProfile?.profileImage),
-                const MenuList(),
+                MenuList(
+                  userProfile: userProfile,
+                ),
               ],
             ),
           ),
