@@ -1,8 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:investement_app/features/home/models/buissnesses_model.dart';
 import 'package:investement_app/features/home/models/category_model.dart';
+import 'package:investement_app/features/home/screens/bottom_nav_bar.dart';
+import 'package:investement_app/features/home/screens/home_screen.dart';
 import 'package:investement_app/features/projects/service/categorey_service.dart';
 import 'package:investement_app/features/projects/service/create_project_service.dart';
 
@@ -114,7 +117,7 @@ class _BusinessFormPageState extends State<BusinessFormPage>
 
     final business = BusinessModel(
       id: null,
-      user: null, 
+      user: null,
       userId: null,
       categoryId: _selectedCategory?.id,
       businessName: _businessNameController.text,
@@ -149,10 +152,7 @@ class _BusinessFormPageState extends State<BusinessFormPage>
           backgroundColor: Colors.green,
         ),
       );
-      _formKey.currentState!.reset();
-      setState(() {
-        _businessPhotoPath = '';
-      });
+      context.pushNamed(BottomNavBar.id, extra: 2);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
