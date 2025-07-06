@@ -6,12 +6,15 @@ import 'package:investement_app/features/myBuisness/screens/my_buissness.dart';
 import 'package:investement_app/features/my_investments/data/get_offers_cubit.dart';
 import 'package:investement_app/features/my_investments/my_investments.dart';
 import 'package:investement_app/features/profile/Screens/profile_screen.dart';
+import 'package:investement_app/features/profile/models/profile_model.dart';
 import 'package:investement_app/features/projects/screens/create_project.dart';
+import 'package:investement_app/features/recent_deals/recent_deals_screen.dart';
 import 'package:investement_app/features/settings/screen/setting_screen.dart';
 import 'package:investement_app/features/wishlist/screens/wishlist_screen.dart';
 
 class MenuList extends StatelessWidget {
-  const MenuList({super.key});
+  final ProfileModel? userProfile;
+  const MenuList({super.key, this.userProfile});
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +44,12 @@ class MenuList extends StatelessWidget {
           }),
       MenuItem(icon: Icons.security, title: "Security", onTap: () {}),
       MenuItem(
+          icon: Icons.security,
+          title: "My Deals",
+          onTap: () {
+            context.pushNamed(SettingsScreen.id);
+          }),
+      MenuItem(
           icon: Icons.assignment,
           title: "My Projects",
           onTap: () {
@@ -58,18 +67,28 @@ class MenuList extends StatelessWidget {
           onTap: () {
             context.pushNamed(WishlistPage.id);
           }),
-      MenuItem(
-          icon: Icons.login,
-          title: "My Investments",
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => BlocProvider(
-                          create: (context) => OffersCubit(),
-                          child: const MyInvestments(),
-                        )));
-          }),
+      userProfile?.type == "investor"
+          ? MenuItem(
+              icon: Icons.account_balance_wallet,
+              title: "My Investments",
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BlocProvider(
+                              create: (context) => OffersCubit(),
+                              child: const MyInvestments(),
+                            )));
+              })
+          : MenuItem(
+              icon: Icons.account_balance_wallet,
+              title: "My Deals",
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RecentDealsScreen()));
+              }),
     ];
     return ListView.separated(
       shrinkWrap: true,
