@@ -35,34 +35,24 @@ class CardListView extends StatelessWidget {
           ),
           child: Column(
             children: [
-              business.businessPhoto != null
-                  ? ClipRRect(
-                      borderRadius:
-                          const BorderRadius.vertical(top: Radius.circular(10)),
-                      child: CachedNetworkImage(
-                        imageUrl:
-                            "http://10.0.2.2:8000/storage/${business.businessPhoto!}",
-                        placeholder: (context, url) => Container(
-                          height: size.height * 0.2,
-                          color: Colors.grey.shade200,
-                          child:
-                              const Center(child: CircularProgressIndicator()),
-                        ),
-                        errorWidget: (context, url, error) => Container(
-                          height: size.height * 0.2,
-                          color: Colors.grey.shade200,
-                          child: Center(
-                              child: Image.asset(
-                            Assets.images.project1.path,
-                            fit: BoxFit.cover,
-                          )),
-                        ),
-                      ))
-                  : Container(
-                      height: size.height * 0.2,
-                      color: Colors.grey.shade200,
-                      child: const Center(child: Icon(Icons.image)),
-                    ),
+              CachedNetworkImage(
+                imageUrl:
+                    "http://10.0.2.2:8000/storage/${business.businessPhoto}",
+                placeholder: (context, url) => Container(
+                  height: size.height * 0.2,
+                  color: Colors.grey.shade200,
+                  child: const Center(child: CircularProgressIndicator()),
+                ),
+                errorWidget: (context, url, error) => Container(
+                  height: size.height * 0.2,
+                  color: Colors.grey.shade200,
+                  child: Center(
+                      child: Image.asset(
+                    Assets.images.project1.path,
+                    fit: BoxFit.cover,
+                  )),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
