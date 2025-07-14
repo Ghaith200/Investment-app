@@ -171,7 +171,10 @@ class _BusinessFormPageState extends State<BusinessFormPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add New Business'),
+        title: Text(
+          'Add New Business',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+        ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
