@@ -26,8 +26,10 @@ class _MyInvestmentsState extends State<MyInvestments> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Investments',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        title: const Text(
+          'My Investments',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+        ),
         centerTitle: true,
       ),
       body: BlocBuilder<OffersCubit, OffersState>(
